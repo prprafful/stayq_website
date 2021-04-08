@@ -1,8 +1,8 @@
 backend:
   name: github
-  branch: master
-  repo: tylergaw/netlify-cms-github-oauth-provider-client-example # change this to your repo
-  base_url: https://netlify-cms-github-oauth-provider-example.glitch.me # change this to your OAuth server
+  branch: poc
+  repo: prprafful/stayq_website
+  base_url: http://localhost
 media_folder: public/img
 public_folder: img
 collections:
@@ -60,7 +60,3 @@ collections:
                 fields:
                   - { label: Image, name: image, widget: string }
                   - { label: Title, name: title, widget: string }
-
-              # - {label: Description, name: description, widget: string}
-              # - {label: Button Text, name: button, widget: string}
-              # - {label: Banner Image, name: banner_image, widget: string}

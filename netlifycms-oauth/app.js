@@ -5,6 +5,8 @@ const port = process.env.PORT || 3000
 
 const app = express()
 
+app.use(express.static('../public'))
+
 // Initial page redirecting to Github
 app.get('/auth', middleWarez.auth)
 
@@ -18,3 +20,4 @@ app.get('/', middleWarez.index)
 app.listen(port, () => {
   console.log("gandalf is walkin' on port " + port)
 })
+
