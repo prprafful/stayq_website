@@ -1,5 +1,3 @@
-import { Link } from '@material-ui/core';
-import { useRouter } from 'next/router'
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import Image from 'next/image';
@@ -13,7 +11,6 @@ function Home({
     features,
     ...props
 }) {
-    const router = useRouter();
 
     return (
         <Layout
@@ -28,18 +25,17 @@ function Home({
                             variant="contained"
                             color="primary"
                             className={styles.button}
-                            onClick={() => router.push('/curriculum/')} // will be made as a link later
                         >
                             {header.button}
                         </Button>
                     </div>
                     <div className={styles.banner}>
-                        <Image
+                        {/* <Image
                             className={styles.bannerImage}
                             src={header.banner_img}
                             height={500}
                             width={800}
-                        />
+                        /> */}
                     </div>
                 </div>
 
@@ -72,7 +68,7 @@ function Home({
 }
 
 export async function getStaticProps() {
-    const data = await import('../content/home.md');
+    const data = await import('../content/curriculum.md');
     return {
         props: {
             meta: data.attributes.meta,

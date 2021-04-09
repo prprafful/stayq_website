@@ -1,0 +1,22 @@
+.headerContainer {
+  background-color: rgb(255, 255, 255);
+//   width: 1905px;
+  margin: 0 auto;
+  padding: 10px;
+  border-bottom: 1px solid rgb(216, 216, 216);
+  .header {
+    max-width: 1140px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .menuList {
+    display: flex;
+    .menuItem {
+        padding: 10px 30px;
+    }
+  }
+}

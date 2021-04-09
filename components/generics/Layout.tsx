@@ -1,5 +1,6 @@
 import Head from "next/head";
 import SEO from "./SEO";
+import Header from "./Header";
 
 // interface Props {
 //     title: string,
@@ -21,6 +22,7 @@ function Layout({
                     meta={meta}
                 />
             </Head>
+            <Header />
             <div>
                 {children}
             </div>
