@@ -2,7 +2,7 @@ backend:
   name: github
   branch: poc
   repo: prprafful/stayq_website
-  base_url: https://www-staging.stayqrious.net
+  base_url: http://www-staging.stayqrious.net
 media_folder: public/img
 public_folder: img
 collections:
