@@ -21,17 +21,15 @@ header:
   subtitle: CODING + STEM FOUNDATIONS FOR GRADES 4-9
   description: The first step your child will take in gaining essential knowledge, skills & mindsets that schools don’t teach and exams don’t test, enabling them to become independent learners for life.
   button: Start Free Trial
-  banner_color: red
+  banner_color: "#4CAFE7"
 
-features:
-  title: Live online coding courses for kids of grades 4-9
-  feature_list:
-    - image: https://stayqrious.com/wp-content/uploads/2020/09/cd1.png
-      title: Coding Fundamentals
-    - image: https://stayqrious.com/wp-content/uploads/2020/09/sf.png
-      title: STEM foundations
-    - image: https://stayqrious.com/wp-content/uploads/2020/09/cd3.png
-      title: How to learn, think, and solve problems creatively.
-    - image: https://stayqrious.com/wp-content/uploads/2020/09/cd4.png
-      title: How to lead teams and communicate confidently.
+courses_outcome:
+  title: Courses Outcomes
+  outcomes_list:
+    - title: Coding Literacy
+    - title: Debugging Systematically
+    - title: Computational Thinking
+    - title: Communicating Confidently
+    - title: Leading Teams
+    - title: Creative Problem Solving
 ---

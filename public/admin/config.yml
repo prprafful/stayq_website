@@ -48,7 +48,7 @@ collections:
             widget: "object"
             fields:
               - { label: Title, name: title, widget: string }
-              - { label: Description, name: description, widget: string }
+              - { label: Description, name: description, widget: markdown }
               - { label: Button Text, name: button, widget: string }
               - { label: Banner Image, name: banner_img, widget: string }
           - label: "Features"
@@ -63,8 +63,7 @@ collections:
                 fields:
                   - { label: Image, name: image, widget: string }
                   - { label: Title, name: title, widget: string }
-      
-                  
+
       - file: "content/curriculum.md"
         label: "Curriculum Page"
         name: "curriculum"
@@ -105,15 +104,60 @@ collections:
               - { label: Description, name: description, widget: string }
               - { label: Button Text, name: button, widget: string }
               - { label: Banner Color, name: banner_color, widget: string }
-          - label: "Features"
-            name: "features"
+          - label: "Courses Outcome"
+            name: "courses_outcome"
             widget: "object"
             fields:
               - { label: Title, name: title, widget: string }
-              - label: "Feature list"
-                name: "feature_list"
+              - label: "Outcome list"
+                name: "outcomes_list"
                 widget: "list"
-                max: 4
+                max: 10
                 fields:
-                  - { label: Image, name: image, widget: string }
                   - { label: Title, name: title, widget: string }
+
+  - name: "curriculums"
+    label: "Curriculums"
+    create: true
+    folder: content/curriculums
+    slug: "{{slug}}"
+    fields:
+      - { label: Title, name: title, widget: string }
+      - label: "Header"
+        name: "header"
+        widget: "object"
+        fields:
+          - { label: Title, name: title, widget: string }
+          - { label: Sub Title, name: subtitle, widget: string }
+          - { label: Description, name: description, widget: markdown }
+          - { label: Button Text, name: button, widget: string }
+          - { label: Banner Color, name: banner_color, widget: string }
+          
+      - label: "Meta"
+        name: "meta"
+        widget: "object"
+        collapsed: false
+        fields:
+          - { label: Title, name: title, widget: string }
+
+          - { label: Description, name: description, widget: string }
+          - { label: og:locale, name: og_locale, widget: string, required: false }
+          - { label: og:type, name: og_type, widget: string, required: false }
+          - { label: og:title, name: og_title, widget: string, required: false }
+          - { label: og:description, name: og_description, widget: string, required: false }
+          - { label: og:url, name: og_url, widget: string, required: false }
+          - { label: og:site_name, name: og_site_name, widget: string, required: false }
+          - { label: og:image, name: og_image, widget: string, required: false }
+          - { label: og:image_width, name: og_image_width, widget: string, required: false }
+          - {
+              label: og:image_height,
+              name: og_image_height,
+              widget: string,
+            }
+          - {
+              label: og:twitter_card,
+              name: og_twitter_card,
+              widget: string,
+            }
+          - { label: og:label1, name: og_label1, widget: string }
+          - { label: og:data1, name: og_data1, widget: string }

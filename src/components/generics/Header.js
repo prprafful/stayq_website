@@ -30,6 +30,7 @@ function Header({ }) {
                     <Button
                         variant="contained"
                         color="primary"
+                        className="sbutton"
                     >
                         Start free trial
                     </Button>

@@ -1,0 +1,40 @@
+.container {
+  .header {
+    padding: 100px 0;
+    .headerWrapper {
+      display: flex;
+      .leftSection {
+        width: 60%;
+        color: #fff;
+        .title {
+          font-size: 40px;
+          font-weight: 700;
+          line-height: 64px;
+          margin-bottom: 1rem;
+        }
+        .subtitle {
+          font-size: 14px;
+          margin-bottom: 2rem;
+        }
+        .description {
+          font-size: 16px;
+          line-height: 26px;
+          margin-bottom: 2rem;
+        }
+      }
+    }
+    .rightSection {
+      width: 40%;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      ul{
+          li{
+              line-height: 30px;
+              font-size: 15px;
+          }
+      }
+    }
+  }
+}

@@ -1,0 +1,32 @@
+html,
+body {
+  padding: 0;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.max-width {
+  max-width: 1140px;
+  margin: 0 auto;
+}
+
+.pbutton {
+  border-radius: 20px!important;
+  background-color: #0085ff!important;
+  padding: 10px 40px!important;
+}
+.sbutton {
+  border-radius: 20px!important;
+  background-color: #FAA004!important;
+  padding: 10px 40px!important;
+}

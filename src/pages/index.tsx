@@ -1,9 +1,12 @@
+import { Link } from '@material-ui/core';
+import { useRouter } from 'next/router'
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import Image from 'next/image';
 import Layout from "../components/generics/Layout";
 
 import styles from '../styles/pages/home.module.scss';
+import matter from 'gray-matter';
 
 function Home({
     meta,
@@ -11,6 +14,7 @@ function Home({
     features,
     ...props
 }) {
+    const router = useRouter();
 
     return (
         <Layout
@@ -24,18 +28,19 @@ function Home({
                         <Button
                             variant="contained"
                             color="primary"
-                            className={styles.button}
+                            className="pbutton"
+                            onClick={() => router.push('/curriculum/')} // will be made as a link later
                         >
                             {header.button}
                         </Button>
                     </div>
                     <div className={styles.banner}>
-                        {/* <Image
+                        <Image
                             className={styles.bannerImage}
                             src={header.banner_img}
                             height={500}
                             width={800}
-                        /> */}
+                        />
                     </div>
                 </div>
 
@@ -68,12 +73,14 @@ function Home({
 }
 
 export async function getStaticProps() {
-    const data = await import('../content/curriculum.md');
+    const content: any = await import('../content/home.md'); // add type
+    const data = matter(content.default);
+
     return {
         props: {
-            meta: data.attributes.meta,
-            header: data.attributes.header,
-            features: data.attributes.features,
+            meta: data.data.meta,
+            header: data.data.header,
+            features: data.data.features,
         }
     };
 }
