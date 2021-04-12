@@ -1,4 +1,5 @@
-import { Card, CardContent } from '@material-ui/core';
+import Card from '@material-ui/core/Card';
+import CardContent from '@material-ui/core/CardContent';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import matter from 'gray-matter';
@@ -8,6 +9,7 @@ import Layout from "../../components/generics/Layout";
 
 import styles from '../../styles/pages/curriclum.module.scss';
 import { getAllCurriculum } from '../api';
+import { Grid } from '@material-ui/core';
 
 function Home({
     meta,
@@ -61,23 +63,28 @@ function Home({
                         </div>
                     </div>
                 </div>
-
-                <div className="flex">
-                    {
-                        curriculums.map((item, index) => (
-                            <Card
-                                key={index}
-                            >
-                                <CardContent>
-                                    <Link
-                                        href={`/curriculum/${item.slug}/`}
-                                    >
-                                        {item.slug}
-                                    </Link>
-                                </CardContent>
-                            </Card>
-                        ))
-                    }
+                <div className={styles.curriculamContainer}>
+                    <div className="max-width">
+                        <Grid container>
+                            {
+                                curriculums.map((item, index) => (
+                                    <Grid xs={2} key={index}>
+                                        <Card
+                                            key={index}
+                                        >
+                                            <CardContent>
+                                                <Link
+                                                    href={`/curriculum/${item.slug}/`}
+                                                >
+                                                    {item.slug}
+                                                </Link>
+                                            </CardContent>
+                                        </Card>
+                                    </Grid>
+                                ))
+                            }
+                        </Grid>
+                    </div>
                 </div>
             </div>
         </Layout>

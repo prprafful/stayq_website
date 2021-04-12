@@ -2,7 +2,7 @@ backend:
   name: github
   branch: poc
   repo: prprafful/stayq_website
-  base_url: http://www-staging.stayqrious.net
+  base_url: https://www-staging.stayqrious.net
 media_folder: public/img
 public_folder: img
 collections:
@@ -139,7 +139,6 @@ collections:
         collapsed: false
         fields:
           - { label: Title, name: title, widget: string }
-
           - { label: Description, name: description, widget: string }
           - { label: og:locale, name: og_locale, widget: string, required: false }
           - { label: og:type, name: og_type, widget: string, required: false }
@@ -153,11 +152,13 @@ collections:
               label: og:image_height,
               name: og_image_height,
               widget: string,
+              required: false,
             }
           - {
               label: og:twitter_card,
               name: og_twitter_card,
               widget: string,
+              required: false
             }
-          - { label: og:label1, name: og_label1, widget: string }
-          - { label: og:data1, name: og_data1, widget: string }
+          - { label: og:label1, name: og_label1, widget: string, required: false }
+          - { label: og:data1, name: og_data1, widget: string, required: false }
