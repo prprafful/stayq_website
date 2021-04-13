@@ -60,6 +60,6 @@ if (process.env.NODE_ENV === 'production') {
   };
 }
 
-(window as any).SQCONFIG = config;
+// (window as any).SQCONFIG = config;
 
 export default config;

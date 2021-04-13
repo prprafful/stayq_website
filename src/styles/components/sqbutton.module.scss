@@ -1,0 +1,51 @@
+.buttonDefault {
+  border-radius: 38px;
+  user-select: none;
+  //background: linear-gradient(180deg, #DAD9F2 0%, #B4B2E6 100%),
+  background: transparent linear-gradient(90deg, #72e1f3 0%, #f8d299 100%) 0% 0%
+    no-repeat padding-box;
+  border: 0;
+  outline: 0;
+  cursor: pointer;
+  font-size: 0.75rem;
+  font-weight: bold;
+  position: relative;
+  padding: 0.25rem 1rem;
+  color: inherit;
+  & .material-icons {
+    font-size: inherit !important;
+    vertical-align: middle;
+  }
+  box-shadow: 2px 4px 4px #00000047;
+}
+.buttonPrimary {
+  //background: linear-gradient(180deg, #3D39AC 0%, #292673 100%),
+  background: transparent linear-gradient(90deg, #f8d224 0%, #e151ab 100%) 0% 0%
+    no-repeat padding-box;
+}
+.buttonLarge {
+  font-size: 1rem;
+  padding: 0.5rem 2rem;
+}
+.buttonDisabled {
+  cursor: default;
+  background: linear-gradient(180deg, rgba(64, 64, 64, 0.6) 0%, rgba(102, 102, 102, 0.6) 100%);
+  color: white;
+  box-shadow: none;
+}
+.progress {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+}
+.progressInner {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.5);
+  transition: width 4s linear;
+  width: 0%;
+}

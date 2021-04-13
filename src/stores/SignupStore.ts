@@ -1,8 +1,8 @@
 import { ApiResponse } from "apisauce";
-import { flow, getEnv, types } from "mobx-state-tree";
+import { flow, getEnv, Instance, types } from "mobx-state-tree";
 import { postOtp, signup, guestLogin } from "../api";
 
-const SignupStore = types
+const SignUpStore = types
     .model('SignUpStore', {
         loading: false,
         errors: types.map(types.array(types.string)),
@@ -61,7 +61,7 @@ const SignupStore = types
         setErrors(errors: { [key: string]: Array<string> }) {
             self.errors.merge(errors);
         },
-        signup: flow(function* () {
+        signup: flow(function* (): any {
             self.loading = true;
             self.errors.clear();
             try {
@@ -131,3 +131,6 @@ const SignupStore = types
             }
         }),
     }))
+export default SignUpStore;
+
+export interface ISignUpStore extends Instance<typeof SignUpStore> { }

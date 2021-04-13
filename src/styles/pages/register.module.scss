@@ -1,0 +1,90 @@
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+.form {
+  display: flex;
+  flex-direction: column;
+}
+.formItems {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin: 10px;
+}
+.field {
+  margin: 10px 0px !important;
+}
+.phoneNumberContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.switchField {
+  display: flex;
+  overflow: hidden;
+  border-radius: 4px;
+  flex-wrap: wrap;
+}
+
+.switchItem {
+  background-color: #e4e4e4;
+  color: rgba(0, 0, 0, 0.6);
+  font-size: 14px;
+  line-height: 1rem;
+  font-weight: 700;
+  text-align: center;
+  padding: 8px 16px;
+  margin: 5px 5px 0px 0px;
+  border-radius: 5px;
+  transition: all 0.1s ease-in-out;
+  cursor: pointer;
+}
+
+.switchItemSelected {
+  background-color: #fcebb2;
+  box-shadow: none;
+  border: 1px solid #f3a335;
+}
+
+.option {
+  font-size: 15px;
+  & > span {
+    margin-right: 10px;
+    font-size: 18px;
+  }
+}
+
+.formtext {
+  display: flex;
+  color: #0a3f6e;
+  width: 100%;
+  font-size: 12px;
+  margin: 5px 0px;
+  & h3 {
+    padding-left: 10px;
+  }
+}
+
+.submitButton {
+  width: 200px;
+  height: 40px;
+  margin: 10px 0px;
+  font-weight: bold;
+  font-size: 16px;
+  align-self: center;
+  @media screen and (min-width: 1024px) {
+    align-self: flex-start;
+  }
+}
+
+.signinButton {
+  background-color: #d3eaff;
+  border-radius: 10px;
+  display: inline-block;
+  padding: 4px 8px;
+}
