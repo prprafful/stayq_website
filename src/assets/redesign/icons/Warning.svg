@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="22.333" height="19.917" viewBox="0 0 22.333 19.917">
+    <defs>
+        <linearGradient id="linear-gradient" x2="1" y1=".5" y2=".5" gradientUnits="objectBoundingBox">
+            <stop offset="0" stop-color="#ffe259"/>
+            <stop offset="1" stop-color="#ffa751"/>
+        </linearGradient>
+        <style>
+            .cls-2{fill:#fd4d34}
+        </style>
+    </defs>
+    <g id="Group_35920" transform="translate(-1880.468 -575.603)">
+        <path id="Path_232564" fill="url(#linear-gradient)" d="M1902.481 591.931l-8.775-15.131a2.392 2.392 0 0 0-4.142 0l-8.777 15.135a2.392 2.392 0 0 0 2.071 3.588h17.552a2.392 2.392 0 0 0 2.071-3.589zm-10.959-14a.132.132 0 0 1 .112-.065.134.134 0 0 1 .113.067l8.775 15.131a.129.129 0 0 1-.112.194h-17.552a.13.13 0 0 1-.113-.193z"/>
+        <path id="Path_232565" d="M1970.747 636.63a1.093 1.093 0 0 0 1.131-1.047v-4.932a1.135 1.135 0 0 0-2.262 0v4.932a1.093 1.093 0 0 0 1.131 1.047z" class="cls-2" transform="translate(-79.113 -48.161)"/>
+        <path id="Path_232566" d="M1970.747 701.406a1.131 1.131 0 1 0-1.131-1.131 1.133 1.133 0 0 0 1.131 1.131z" class="cls-2" transform="translate(-79.113 -108.828)"/>
+    </g>
+</svg>

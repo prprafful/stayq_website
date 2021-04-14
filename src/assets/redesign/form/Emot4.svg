@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="96.237" height="96.236" viewBox="0 0 96.237 96.236">
+    <defs>
+        <linearGradient id="linear-gradient" x1=".146" x2=".854" y1=".146" y2=".854" gradientUnits="objectBoundingBox">
+            <stop offset="0" stop-color="#ffdc52"/>
+            <stop offset=".995" stop-color="#feb101"/>
+        </linearGradient>
+        <clipPath id="clip-path">
+            <path id="Path_125660" fill="none" d="M2181.134 2345.945c-.3-1.283-1.037-2.128-1.859-2.128h-37.051c-.8 0-1.525.8-1.838 2.038a5.115 5.115 0 0 0 .407 3.625c.34.586 8.472 14.36 20.157 14.361 6.887 0 13.5-4.786 19.669-14.225a5.011 5.011 0 0 0 .515-3.671z" transform="translate(-2140.229 -2343.817)"/>
+        </clipPath>
+        <style>
+            .cls-3{fill:#542a18}
+        </style>
+    </defs>
+    <g id="Group_19548">
+        <path id="Path_125655" fill="url(#linear-gradient)" d="M2210.426 2336.077a48.119 48.119 0 1 1-48.118-48.118 48.118 48.118 0 0 1 48.118 48.118z" transform="translate(-2114.189 -2287.959)"/>
+        <g id="Group_19544" transform="translate(18.257 36.638)">
+            <path id="Path_125656" d="M2142.438 2329.933c0 4.088-2.468 7.4-5.512 7.4s-5.51-3.314-5.51-7.4 2.467-7.406 5.51-7.406 5.512 3.315 5.512 7.406z" class="cls-3" transform="translate(-2131.415 -2322.527)"/>
+            <path id="Path_125657" d="M2188.387 2329.933c0 4.088-2.467 7.4-5.512 7.4s-5.51-3.314-5.51-7.4 2.467-7.406 5.51-7.406 5.512 3.315 5.512 7.406z" class="cls-3" transform="translate(-2128.664 -2322.527)"/>
+        </g>
+        <g id="Group_19547" transform="translate(27.599 59.202)">
+            <path id="Path_125658" d="M2181.134 2345.945c-.3-1.283-1.037-2.128-1.859-2.128h-37.051c-.8 0-1.525.8-1.838 2.038a5.115 5.115 0 0 0 .407 3.625c.34.586 8.472 14.36 20.157 14.361 6.887 0 13.5-4.786 19.669-14.225a5.011 5.011 0 0 0 .515-3.671z" class="cls-3" transform="translate(-2140.229 -2343.817)"/>
+            <g id="Group_19546">
+                <g id="Group_19545" clip-path="url(#clip-path)">
+                    <path id="Path_125659" fill="#c73437" d="M2173.1 2359.448c0 4.661-5.723 8.44-12.786 8.44s-12.786-3.779-12.786-8.44 5.724-8.439 12.786-8.439 12.786 3.778 12.786 8.439z" transform="translate(-2139.792 -2343.386)"/>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

@@ -6,7 +6,8 @@ import '../styles/globals.css'
 import * as gtag from '../utils/gtag';
 
 
-const isProduction = process.env.NODE_ENV === "production";
+const isProduction = true
+// const isProduction = process.env.NODE_ENV === "production";
 
 function MyApp({ Component, pageProps }: AppProps) {
 
@@ -20,7 +21,7 @@ function MyApp({ Component, pageProps }: AppProps) {
     return () => {
       router.events.off("routeChangeComplete", handleRouteChange);
     }
-  }, [router.events])
+  }, [router,])
 
   return <Component {...pageProps} />
 }

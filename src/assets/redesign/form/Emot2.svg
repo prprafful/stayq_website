@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" id="Group_19562" width="96.206" height="96.206" viewBox="0 0 96.206 96.206">
+    <defs>
+        <linearGradient id="linear-gradient" x2="1" y1=".5" y2=".5" gradientUnits="objectBoundingBox">
+            <stop offset="0" stop-color="#ffdc52"/>
+            <stop offset=".995" stop-color="#feb101"/>
+        </linearGradient>
+        <style>
+            .cls-4{fill:#542a18}
+        </style>
+    </defs>
+    <circle id="Ellipse_9087" cx="48.103" cy="48.103" r="48.103" fill="#fdd835"/>
+    <circle id="Ellipse_9088" cx="48.103" cy="48.103" r="48.103" fill="url(#linear-gradient)"/>
+    <g id="Group_19560" transform="translate(35.036 61.818)">
+        <path id="Path_125673" fill="#212121" d="M2045.587 2345.882a24.908 24.908 0 0 0-12.815 3.667 1.307 1.307 0 0 0 1.479 2.155c.436-.3 10.807-7.2 22.077.022a1.306 1.306 0 1 0 1.408-2.2 22.2 22.2 0 0 0-12.149-3.644z" transform="translate(-2032.205 -2345.882)"/>
+    </g>
+    <g id="Group_19561" transform="translate(16.247 37.148)">
+        <path id="Path_125674" d="M2026.236 2330.506c0 4.36-2.633 7.9-5.88 7.9s-5.878-3.537-5.878-7.9 2.632-7.9 5.878-7.9 5.88 3.537 5.88 7.9z" class="cls-4" transform="translate(-2014.478 -2322.606)"/>
+        <path id="Path_125675" d="M2075.255 2330.506c0 4.36-2.633 7.9-5.88 7.9s-5.879-3.537-5.879-7.9 2.632-7.9 5.879-7.9 5.88 3.537 5.88 7.9z" class="cls-4" transform="translate(-2011.543 -2322.606)"/>
+    </g>
+</svg>

@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="48.737" height="48.737" viewBox="0 0 48.737 48.737">
+    <defs>
+        <linearGradient id="linear-gradient" x2="1" y1=".5" y2=".5" gradientUnits="objectBoundingBox">
+            <stop offset="0" stop-color="#f8d224"/>
+            <stop offset="1" stop-color="#e151ab"/>
+        </linearGradient>
+        <filter id="Path_232530" width="48.737" height="48.737" x="0" y="0" filterUnits="userSpaceOnUse">
+            <feOffset dy="3"/>
+            <feGaussianBlur result="blur" stdDeviation="3"/>
+            <feFlood flood-opacity=".161"/>
+            <feComposite in2="blur" operator="in"/>
+            <feComposite in="SourceGraphic"/>
+        </filter>
+        <style>
+            .cls-2{fill:#f9f9f9}
+        </style>
+    </defs>
+    <g id="Group_35851" transform="translate(-2045.643 330.037)">
+        <g filter="url(#Path_232530)" transform="translate(2045.64 -330.04)">
+            <path id="Path_232530-2" fill="url(#linear-gradient)" stroke="#fff" stroke-width="2px" d="M2079.889-294.3h-19.756a4.49 4.49 0 0 1-4.49-4.49v-19.757a4.49 4.49 0 0 1 4.49-4.49h19.756a4.49 4.49 0 0 1 4.491 4.49v19.757a4.49 4.49 0 0 1-4.491 4.49z" transform="translate(-2045.64 330.04)"/>
+        </g>
+        <g id="Group_35912" transform="translate(-147.455 -824.046)">
+            <path id="Path_232621" d="M2215.952 525.446h-5.084a1.082 1.082 0 1 0 0 2.164h2.5l-4.829 4.809a1.083 1.083 0 0 0 1.528 1.536l4.826-4.806-.011 2.458a1.084 1.084 0 0 0 2.169 0v-5.08a.989.989 0 0 0-.332-.762 1.085 1.085 0 0 0-.767-.319z" class="cls-2" transform="translate(0 -9.376)"/>
+            <path id="Path_232622" d="M2236.513 507.09a1.083 1.083 0 0 0-1.847-.768l-4.825 4.806.011-2.458a1.084 1.084 0 0 0-2.169 0v5.08a.988.988 0 0 0 .328.759 1.082 1.082 0 0 0 .772.323h5.084a1.083 1.083 0 1 0 0-2.165h-2.5l4.828-4.809a1.076 1.076 0 0 0 .318-.768z" class="cls-2" transform="translate(-9.387)"/>
+        </g>
+    </g>
+</svg>

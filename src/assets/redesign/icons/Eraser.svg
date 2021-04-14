@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="38.764" height="38.763" viewBox="0 0 38.764 38.763">
+    <defs>
+        <linearGradient id="m0rzqmv0va" x2="1" y1=".5" y2=".5" gradientUnits="objectBoundingBox">
+            <stop offset="0" stop-color="#ec018c"/>
+            <stop offset="1" stop-color="#fc6667"/>
+        </linearGradient>
+    </defs>
+    <g>
+        <path fill="#efa6b5" d="M712.574 563.961l-6.9 6.905a5.48 5.48 0 0 0 0 7.741l6.881 6.882a5.482 5.482 0 0 0 7.742 0l6.9-6.905a.608.608 0 0 0 0-.86l-13.762-13.763a.609.609 0 0 0-.861 0z" transform="translate(-704.068 -548.327)"/>
+        <path fill="url(#m0rzqmv0va)" d="M728.033 548.5l-16.016 16.016a.609.609 0 0 0 0 .86l13.762 13.763a.61.61 0 0 0 .861 0l16.016-16.016a.616.616 0 0 0 0-.861L728.893 548.5a.614.614 0 0 0-.86 0z" transform="translate(-704.068 -548.327)"/>
+        <path d="M742.656 563.124l-22.365 22.365a5.48 5.48 0 0 1-7.741 0l-1.787-1.787a5.482 5.482 0 0 0 7.742 0l2.582-2.58.429-.431 19.353-19.353a.618.618 0 0 0 0-.861l1.787 1.787a.613.613 0 0 1 0 .86z" style="mix-blend-mode:multiply;isolation:isolate" fill="#9c4e54" opacity="0.39" transform="translate(-704.068 -548.327)"/>
+    </g>
+</svg>

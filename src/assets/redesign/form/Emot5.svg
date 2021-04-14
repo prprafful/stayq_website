@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="110.11" height="98.279" viewBox="0 0 110.11 98.279">
+    <defs>
+        <linearGradient id="linear-gradient" x1=".146" x2=".854" y1=".146" y2=".854" gradientUnits="objectBoundingBox">
+            <stop offset="0" stop-color="#ffdc52"/>
+            <stop offset=".995" stop-color="#feb101"/>
+        </linearGradient>
+        <clipPath id="clip-path">
+            <path id="Path_125670" fill="none" d="M2306.5 2342.98c-.3-1.31-1.059-2.172-1.9-2.172h-37.84c-.818 0-1.557.819-1.876 2.08a5.223 5.223 0 0 0 .416 3.7c.348.6 8.653 14.664 20.586 14.667 7.034 0 13.791-4.889 20.086-14.528a5.118 5.118 0 0 0 .528-3.747z" transform="translate(-2264.726 -2340.808)"/>
+        </clipPath>
+        <style>
+            .cls-6{fill:#9563ce}
+        </style>
+    </defs>
+    <g id="Group_19559">
+        <path id="Path_125668" fill="url(#linear-gradient)" d="M2336.416 2336.543a49.141 49.141 0 1 1-49.142-49.14 49.14 49.14 0 0 1 49.142 49.14z" transform="translate(-2232.22 -2287.403)"/>
+        <path id="Path_125669" fill="#542a18" d="M2306.5 2342.98c-.3-1.31-1.059-2.172-1.9-2.172h-37.84c-.818 0-1.557.819-1.876 2.08a5.223 5.223 0 0 0 .416 3.7c.348.6 8.653 14.664 20.586 14.667 7.034 0 13.791-4.889 20.086-14.528a5.118 5.118 0 0 0 .528-3.747z" transform="translate(-2230.628 -2284.206)"/>
+        <g id="Group_19557" transform="translate(34.098 56.602)">
+            <g id="Group_19556" clip-path="url(#clip-path)">
+                <path id="Rectangle_490" fill="#fff" d="M0 0H50.502V13.497H0z" transform="translate(-4.976 -7.462)"/>
+            </g>
+        </g>
+        <g id="Group_19558" transform="translate(0 5.543)">
+            <path id="Path_125671" d="M2257.665 2292.633l7.76 15.723 17.351 2.521-12.555 12.238 2.964 17.281-15.519-8.16-15.519 8.16 2.965-17.281-12.556-12.238 17.351-2.521z" class="cls-6" transform="translate(-2232.554 -2292.633)"/>
+            <path id="Path_125672" d="M2314.171 2292.633l7.759 15.723 17.351 2.521-12.556 12.238 2.964 17.281-15.519-8.16-15.519 8.16 2.964-17.281-12.556-12.238 17.352-2.521z" class="cls-6" transform="translate(-2229.171 -2292.633)"/>
+        </g>
+    </g>
+</svg>

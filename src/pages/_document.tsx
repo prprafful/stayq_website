@@ -1,19 +1,22 @@
 import Document, { Html, Head, Main, NextScript } from "next/document";
 import { SheetsRegistry, JssProvider, createGenerateId } from "react-jss";
 import { GA_TRACKING_ID } from "../utils/gtag";
+import { ServerStyleSheets } from '@material-ui/core/styles';
 
-const isProduction = process.env.NODE_ENV === "production";
+// const isProduction = process.env.NODE_ENV === "production";
+const isProduction = true
 
 export default class MyDocument extends Document {
     static async getInitialProps(ctx) {
         const registry = new SheetsRegistry();
         const generateId = createGenerateId();
+        const sheets = new ServerStyleSheets();
 
         const originalRenderPage = ctx.renderPage;
 
         ctx.renderPage = () =>
             originalRenderPage({
-                enhanceApp: (App) => (props) => (
+                enhanceApp: (App) => (props) => sheets.collect(
                     <JssProvider
                         registry={registry}
                         generateId={generateId}
@@ -26,7 +29,7 @@ export default class MyDocument extends Document {
             });
 
         const initialProps = await Document.getInitialProps(ctx);
-        
+
         return {
             ...initialProps,
             styles: (
@@ -34,6 +37,7 @@ export default class MyDocument extends Document {
                     {initialProps.styles}
                     <style id="server-side-styles">
                         {registry.toString()}
+                        {sheets.getStyleElement()}
                     </style>
                 </>
             ),

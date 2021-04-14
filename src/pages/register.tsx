@@ -5,8 +5,9 @@
 // }
 
 // export default register;
-import { InputAdornment, TextField, Button, Typography } from '@material-ui/core';
+import { InputAdornment, TextField, Button, Typography, makeStyles } from '@material-ui/core';
 import { observer } from 'mobx-react-lite';
+import Router, { useRouter } from 'next/router';
 // import clsx from 'clsx';
 // import Loading from 'components/Loading';
 // import GraduateCapSVG from 'assets/redesign/icons/graduateCap.svg';
@@ -15,7 +16,7 @@ import { observer } from 'mobx-react-lite';
 // import MobileSVG from 'assets/redesign/icons/mobile.svg';
 // import person from 'assets/redesign/icons/person.svg';
 // import SchoolSVG from 'assets/redesign/icons/school.svg';
-import React, { useEffect, useMemo } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 import { ISignUpStore } from '../stores/SignupStore';
 import mobilecheck from '../utils/mobilecheck';
 import Config from '../config';
@@ -27,6 +28,12 @@ import Layout from '../components/generics/Layout';
 import styles from '../styles/pages/register.module.scss';
 import SQButton from '../components/generics/SQButton';
 import { BlueTextField } from '../components/generics/BlueTextField';
+import SignUpForm from '../components/register/SignUpForm';
+import SQDialog from '../components/generics/SQDialog';
+import OtpPopUp from 'components/register/OtpPopUp';
+import { createUseStyles } from 'react-jss';
+// import { useStore } from 'stores';
+
 // import { ISignUpStore } from 'store/SignUpStore';
 // import Config from 'config';
 // import { Location } from 'history';
@@ -109,39 +116,67 @@ import { BlueTextField } from '../components/generics/BlueTextField';
 //   },
 // });
 
+
+const useStyles = createUseStyles({
+  signUp: {
+    display: 'flex',
+  },
+  formContainer: {
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    flexDirection: 'column',
+  },
+  paper: {
+    borderRadius: 10,
+    userSelect: 'none',
+    maxWidth: 'unset',
+  },
+});
+
+
 interface RegistrationFormProps {
   // signUpStore: ISignUpStore;
   // onFormSubmit: () => void;
   location: Location;
 }
 
-const SignUpForm = ({
+const Register = ({
   // onFormSubmit,
   location
 }: RegistrationFormProps) => {
-  // const styles = useStyles();
-  // const queryparams = useMemo(() => new URLSearchParams(location.search), [location.search]);
+  const classes = useStyles();
+  const router = useRouter();
+  console.log('as', router);
   // const { state } = location;
   // const { from: fromLocation } = (state || { from: undefined }) as { from: Location };
+  const [showOTPForm, setShowOTPForm] = useState(false);
 
-  const { signUpStore } = useStores();
+  const { signUpStore, userStore } = useStores();
+
+  // const queryparams = useMemo(() => new URLSearchParams(router.query), [router.query]);
+
+  // const nextUrl = queryparams.get('next');
+
+  useEffect(() => {
+    if (userStore.currentUser) {
+      Router.push('/dashboard/');
+    }
+    if (signUpStore.signupSuccess) {
+      Router.push('/dashboard/');
+    }
+  }, [userStore.currentUser, signUpStore.signupSuccess,]);
+
 
   const onFormSubmit = () => {
-    console.log('here')
     signUpStore.guestLogin().then((response) => {
       if (!response.problem) {
         signUpStore.postOtp();
-        // setshowOTPForm(true);
+        setShowOTPForm(true);
       }
     });
   }
 
-  useEffect(() => {
-    if (window.innerWidth > 1024 && !mobilecheck()) {
-      // assume laptop??
-      signUpStore.setHasLaptop(true);
-    }
-  }, [signUpStore]);
 
   // useEffect(() => {
   //   const trackingUrlParams = ['utm_source', 'utm_campaign', 'utm_medium', 'utm_term', 'utm_content', 'gclid'];
@@ -165,212 +200,60 @@ const SignUpForm = ({
     >
 
       <div className={styles.container}>
-        <form
-          className={styles.form}
-          onSubmit={(event) => {
-            event.preventDefault();
-            onFormSubmit();
-          }}
-        >
-          <div
-            className={styles.formItems}
-          >
-            <TextField
-              className={styles.field}
-              value={signUpStore.kidName}
-              onChange={(e) => signUpStore.setKidName(e.target.value)}
-              type="text"
-              id="kidName"
-              variant="outlined"
-              placeholder="Your Name"
-              required
-              fullWidth
-              error={signUpStore.errors.has('kidName')}
-              helperText={signUpStore.errors.get('kidName')}
-              InputProps={{
-                startAdornment: (
-                  <InputAdornment position="start">
-                    {/* <img src={person} alt="" /> */}
-                  </InputAdornment>
-                ),
-              }}
-            // className={styles.field}
-            />
-            <TextField
-              className={styles.field}
-              value={signUpStore.parentEmail}
-              onChange={(e) => signUpStore.setParentEmail(e.target.value)}
-              type="email"
-              id="parentEmail"
-              variant="outlined"
-              placeholder="Parent's Email ID"
-              required
-              fullWidth
-              error={signUpStore.errors.has('parentEmail')}
-              helperText={signUpStore.errors.get('parentEmail')}
-              InputProps={{
-                startAdornment: (
-                  <InputAdornment position="start">
-                    {/* <img src={mail} /> */}
-                  </InputAdornment>
-                ),
-              }}
-            // className={styles.field}
-            />
-            <div
-              className={styles.phoneNumberContainer}
-            >
-              <TextField
-                className={styles.field}
-                value={signUpStore.countryCode}
-                onChange={(e) => {
-                  const phone = e.target.value.replace(/[^0-9\-+]/gi, '').substr(0, 5);
-                  signUpStore.setCountryCode(phone);
-                }}
-                style={{ width: '40%', paddingRight: 10 }}
-                type="text"
-                id="tel-country-code"
-                variant="outlined"
-                placeholder="India +(91)"
-                fullWidth
-              />
-              <TextField
-                className={styles.field}
-                value={signUpStore.phone}
-                onChange={(e) => {
-                  const phone = e.target.value.replace(/[^0-9\-+]/gi, '').substr(0, 10);
-                  signUpStore.setPhone(phone);
-                }}
-                type="tel"
-                id="phone"
-                variant="outlined"
-                placeholder="Mobile No"
-                required
-                fullWidth
-                error={signUpStore.errors.has('phone')}
-                helperText={signUpStore.errors.get('phone')}
-                InputProps={{
-                  startAdornment: (
-                    <InputAdornment position="start">
-                      {/* <img src={MobileSVG} /> */}
-                    </InputAdornment>
-                  ),
-                }}
-              />
-            </div>
-            <Typography
-              variant="h6"
-              style={{
-                color: '#2772b4',
-                fontSize: '10px',
-              }}
-            >
-              we will send an OTP on this number to verify your identy
-            </Typography>
-            <TextField
-              className={styles.field}
-              value={signUpStore.kidSchool}
-              onChange={(e) => signUpStore.setKidSchool(e.target.value)}
-              type="text"
-              id="kidschool"
-              variant="outlined"
-              placeholder="School Name"
-              required
-              fullWidth
-              error={signUpStore.errors.has('kidSchool')}
-              helperText={signUpStore.errors.get('kidSchool')}
-              InputProps={{
-                startAdornment: (
-                  <InputAdornment position="start">
-                    {/* <img src={SchoolSVG} /> */}
-                  </InputAdornment>
-                ),
-              }}
-            // className={styles.field}
-            />
-            <div
-              className={styles.formtext}
-            >
-              {/* <img src={GraduateCapSVG} /> */}
-              <Typography
-                variant="h5"
-                style={{
-                  fontSize: '16px'
-                }}
-              >
-                Kid's Grade/Class in School? *
-              </Typography>
-            </div>
-            <div
-              className={styles.switchField}
-            >
-              {Config.GRADES.map((grade) => (
-                <div
-                  key={grade}
-                  className={clsx(styles.switchItem, { [styles.switchItemSelected]: signUpStore.kidGrade === grade })}
-                  onClick={() => {
-                    signUpStore.setKidGrade(grade);
-                  }}
-                >
-                  {grade}
-                </div>
-              ))}
-              {signUpStore.errors.has('grade') && (
-                <div
-                  className={styles.formtext}
-                  style={{ color: 'red' }}
-                >
-                  Please select an option
-                </div>
-              )}
-            </div>
-            <div
-              className={styles.formtext}
-            >
-              {/* <img src={LaptopSVG} /> */}
-              <Typography variant="h6" style={{ fontSize: '16px' }}>Do you have a laptop/PC at home? *</Typography>
-            </div>
+        <SignUpForm
+          signUpStore={signUpStore}
+          onFormSubmit={onFormSubmit}
+        // location={''}
+        />
 
-            <div
-              className={styles.switchField}
-            >
-              {[
-                { text: 'Yes', value: true },
-                { text: 'No', value: false },
-              ].map(({ text, value }) => (
-                <div
-                  key={text}
-                  className={clsx(styles.switchItem, { [styles.switchItemSelected]: signUpStore.hasLaptop === value })}
-                  //   [styles.switchItemSelected]: signUpStore.hasLaptop === value,
-                  // })}
-                  onClick={() => {
-                    signUpStore.setHasLaptop(value);
-                  }}
-                >
-                  {text}
-                </div>
-              ))}
-              {signUpStore.errors.has('hasLaptop') && (
-                <div
-                  className={styles.formtext}
-                  style={{ color: 'red' }}
-                >
-                  Please select an option
-                </div>
-              )}
-            </div>
-            <SQButton
-              primary
-              className={styles.submitButton}
-            // type="submit"
-            >
-              {signUpStore.loading ? "Loading" : "Let's Go"}
-            </SQButton>
-          </div>
-        </form>
+        {showOTPForm && (
+          <SQDialog
+            disableBackdropClick
+            disableEscapeKeyDown
+            open={true}
+            classes={{ paper: classes.paper }}
+            onClose={() => { }}
+          >
+            <OtpPopUp
+              signUpStore={signUpStore}
+              phoneNumber={signUpStore.countryCode + signUpStore.phone}
+              onEditNumber={() => {
+                setShowOTPForm(false);
+              }}
+              onSkipOtp={() => {
+                setShowOTPForm(false);
+              }}
+              onSubmit={() =>
+                signUpStore.signup().then(() => {
+                  if (signUpStore.errors.size === 0) {
+                    userStore.pullUser();
+                  } else {
+                    if (!signUpStore.errors.has('otp')) {
+                      setShowOTPForm(false);
+                    }
+                  }
+                })
+              }
+            />
+          </SQDialog>
+        )}
       </div>
-    </Layout>
+      <div>
+        <p>
+          By registering, I agree to StayQrious{' '}
+          <a href="https://stayqrious.com/terms-and-conditions/#tnc" target="_blank" rel="noreferrer">
+            Terms &amp; Conditions
+            </a>{' '}
+            &{' '}
+          <a href="https://stayqrious.com/terms-and-conditions/#privacy_policy" target="_blank" rel="noreferrer">
+            Privacy Policy
+            </a>
+          <br />
+          {/* Already have an account? <Link to={{ pathname: '/login', state: { from: fromLocation } }}>Log in</Link> */}
+        </p>
+      </div>
+    </Layout >
   );
 };
 
-export default observer(SignUpForm);
+export default observer(Register);
