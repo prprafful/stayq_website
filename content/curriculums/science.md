@@ -1,7 +1,7 @@
 ---
 title: science
 header:
-  title: Science
+  title: Science Section
   subtitle: The strength of Science and its online journal sites rests with the
     strengths of its community of authors, who provide cutting-edge research,
     incisive scientific commentary, and insights on what’s important to the
