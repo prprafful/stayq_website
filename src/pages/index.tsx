@@ -15,7 +15,7 @@ function Home({
     ...props
 }) {
     const router = useRouter();
-
+    console.log(header)
     return (
         <Layout
             meta={meta}
