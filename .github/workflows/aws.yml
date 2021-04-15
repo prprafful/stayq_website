@@ -57,7 +57,7 @@ jobs:
       id: build-image
       env:
         ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
-        ECR_REPOSITORY: 184563364297.dkr.ecr.ap-south-1.amazonaws.com
+        ECR_REPOSITORY: 184563364297.dkr.ecr.ap-south-1.amazonaws.com/sq/staging/stayq_com_nextjs
         IMAGE_TAG: ${{ github.sha }}
       run: |
         # Build a docker container and
