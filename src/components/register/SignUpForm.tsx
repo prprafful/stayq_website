@@ -1,4 +1,4 @@
-import { InputAdornment, TextField, Button, Typography } from "@material-ui/core";
+import { InputAdornment, Typography } from "@material-ui/core";
 import clsx from "clsx";
 import styles from "styles/pages/register.module.scss";
 import SQButton from "components/generics/SQButton";
@@ -16,6 +16,7 @@ import { useEffect, useMemo } from "react";
 import mobilecheck from "utils/mobilecheck";
 import { ISignUpStore } from "stores/SignupStore";
 import { BlueTextField } from "components/generics/BlueTextField";
+import { useRouter } from "next/router";
 
 interface RegistrationFormProps {
     signUpStore: ISignUpStore;
@@ -28,7 +29,8 @@ function SignUpForm({
     onFormSubmit,
     // location
 }: RegistrationFormProps) {
-    // const queryparams = useMemo(() => new URLSearchParams(location.search), [location.search]);
+    const router = useRouter();
+    const queryparams = useMemo(() => router.query, [router.query]);
     // const { state } = location;
     // const { from: fromLocation } = (state || { from: undefined }) as { from: Location };
 
@@ -39,21 +41,21 @@ function SignUpForm({
         }
     }, [signUpStore]);
 
-    // useEffect(() => {
-    //     const trackingUrlParams = ['utm_source', 'utm_campaign', 'utm_medium', 'utm_term', 'utm_content', 'gclid'];
-    //     const filteredParams = trackingUrlParams.reduce<{ [key: string]: string }>((obj, key) => {
-    //         const val = queryparams.get(key);
-    //         if (val) {
-    //             obj[key] = val;
-    //         }
-    //         return obj;
-    //     }, {});
+    useEffect(() => {
+        const trackingUrlParams = ['utm_source', 'utm_campaign', 'utm_medium', 'utm_term', 'utm_content', 'gclid'];
+        const filteredParams = trackingUrlParams.reduce<{ [key: string]: string }>((obj: any, key) => {
+            const val = queryparams[key];
+            if (val) {
+                obj[key] = val;
+            }
+            return obj;
+        }, {});
 
-    //     if (document.referrer) filteredParams['referred_url'] = document.referrer;
-    //     // if (fromLocation) filteredParams['landing_page'] = fromLocation.pathname;
+        if (document.referrer) filteredParams['referred_url'] = document.referrer;
+        // if (fromLocation) filteredParams['landing_page'] = fromLocation.pathname;
 
-    //     signUpStore.setExtraInfo(filteredParams);
-    // }, [queryparams,/* fromLocation,*/ signUpStore]);
+        signUpStore.setExtraInfo(filteredParams);
+    }, [queryparams,/* fromLocation,*/ signUpStore]);
 
     return (
         <>
@@ -62,7 +64,7 @@ function SignUpForm({
                 onSubmit={(event) => {
                     event.preventDefault();
                     signUpStore.validate();
-                    if(signUpStore.errors.size === 0) onFormSubmit();
+                    if (signUpStore.errors.size === 0) onFormSubmit();
                 }}
             >
                 <div

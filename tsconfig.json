@@ -24,7 +24,7 @@
     "**/*.ts",
     "**/*.tsx",
     "src",
-    "*.svg",
+    // "*.svg",
   ],
   "exclude": [
     "node_modules"

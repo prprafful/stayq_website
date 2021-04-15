@@ -2,25 +2,28 @@ import Head from "next/head";
 import SEO from "./SEO";
 import Header from "./Header";
 
-// interface Props {
-//     title: string,
-//     description?: string,
-//     og_title?: string,
-//     og_description?: string,
-//     children: React.ReactNode,
-// }
+interface Props {
+    meta?: any,
+    title?: string,
+    // description?: string,
+    children: React.ReactNode,
+}
 
 function Layout({
     meta,
+    title,
+    // description,
     children,
-}) {
+}: Props) {
     return (
         <>
             <Head>
-                <title>{meta.title}</title>
-                <SEO
+                <title>
+                    {meta && meta.title || title || 'StayQrious'}
+                </title>
+                {meta && <SEO
                     meta={meta}
-                />
+                />}
             </Head>
             <Header />
             <div>

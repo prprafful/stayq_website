@@ -61,7 +61,7 @@ collections:
                 widget: "list"
                 max: 4
                 fields:
-                  - { label: Image, name: image, widget: string }
+                  - { label: Image, name: image, widget: image }
                   - { label: Title, name: title, widget: string }
 
       - file: "src/content/curriculum.md"

@@ -13,7 +13,6 @@ function SubjectTemplate({
     rest,
     ...props
 }) {
-    console.log('--<', header)
     return (
         <Layout
             meta={meta}
@@ -70,7 +69,6 @@ export default SubjectTemplate;
 
 export async function getStaticProps(context) {
     const content: any = await getACurriculum(context.params.subject);
-    console.log('context', content);
     const data: any = content.data;
 
     return {
