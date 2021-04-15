@@ -24,7 +24,7 @@ header:
     kids gain important skills and attitudes that schools don’t teach and exams
     never test.
   button: Start Free Trial
-  banner_img: https://stayqrious.com/wp-content/uploads/2020/09/hero.png.webp
+  banner_img: img/image.webp
 features:
   title: Live online coding courses for kids of grades 4-9
   feature_list:
