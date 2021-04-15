@@ -11,7 +11,6 @@ const api = create({
 api.addRequestTransform((request) => {
     if (request.url !== `auth/token/login/`) {
         if (commonStore.token) {
-            console.log('hello', commonStore.token)
             request.headers['Authorization'] = `Token ${commonStore.token}`;
         }
         const impersonateUser = window.localStorage.getItem('impersonate');
