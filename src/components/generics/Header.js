@@ -12,7 +12,7 @@ function Header({ }) {
                         href="/"
                     >
                         <Image
-                            src={'https://stayqrious.com/wp-content/uploads/2020/09/logo-300x59.png'}
+                            src={'https://res.cloudinary.com/dttau3gcw/image/upload/v1618557162/image_p3dnha.png'}
                             height={50}
                             width={250}
                         />
