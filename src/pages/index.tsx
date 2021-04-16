@@ -1,4 +1,3 @@
-import { Link } from '@material-ui/core';
 import { useRouter } from 'next/router'
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
@@ -35,12 +34,18 @@ function Home({
                         </Button>
                     </div>
                     <div className={styles.banner}>
-                        <Image
+                        <img
                             className={styles.bannerImage}
                             src={header.banner_img}
                             height={500}
                             width={800}
                         />
+                        {/* <Image
+                            className={styles.bannerImage}
+                            src={header.banner_img}
+                            height={500}
+                            width={800}
+                        /> */}
                     </div>
                 </div>
 
@@ -53,10 +58,11 @@ function Home({
                                     key={index}
                                     className={styles.featureItem}
                                 >
-                                    <Image
+                                    <img
                                         src={item.image}
-                                        height={200}
-                                        width={200}
+                                        className="img"
+                                        height={100}
+                                        width={100}
                                     />
 
                                     <Typography variant="h6">

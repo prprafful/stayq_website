@@ -24,15 +24,15 @@ header:
     kids gain important skills and attitudes that schools don’t teach and exams
     never test.
   button: Start Free Trial
-  banner_img: img/image.webp
+  banner_img: /img/image.webp
 features:
   title: Live online coding courses for kids of grades 4-9
   feature_list:
-    - image: img/code.webp
+    - image: /img/code.webp
       title: Coding Fundamentals
     - image: https://res.cloudinary.com/dttau3gcw/image/upload/v1618556806/image_khonme.png
       title: STEM foundations
-    - image: img/idea.webp
+    - image: /img/idea.webp
       title: How to learn, think, and solve problems creatively.
     - image: https://res.cloudinary.com/dttau3gcw/image/upload/v1618556779/image_dgfnfc.png
       title: How to lead teams and communicate confidently.

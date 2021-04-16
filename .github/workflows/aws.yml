@@ -115,3 +115,15 @@ jobs:
     #     service: stayq_com
     #     cluster: sq-staging
     #     wait-for-service-stability: true
+
+    - name: Purge the cache on cloudflare for now
+      id: purge
+      uses: fjogeleit/http-request-action@master
+      with:
+        url: ${{ secrets.CLOUDFLARE_PURGE_URL }}
+        method: 'POST'
+        bearerToken: ${{ secrets.CLOUDFLARE_BEARER_TOKEN }}
+        data: '{"purge_everything":true}'
+
+    - name: Show response of purging
+      run: echo ${{ steps.purge.outputs.response }}
