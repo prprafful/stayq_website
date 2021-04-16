@@ -32,7 +32,7 @@ features:
       title: Coding Fundamentals
     - image: https://stayqrious.com/wp-content/uploads/2020/09/sf.png
       title: STEM foundations
-    - image: img/idea.webp
+    - image: https://res.cloudinary.com/dttau3gcw/image/upload/v1618556779/image_dgfnfc.png
       title: How to learn, think, and solve problems creatively.
     - image: https://stayqrious.com/wp-content/uploads/2020/09/cd4.png
       title: How to lead teams and communicate confidently.
