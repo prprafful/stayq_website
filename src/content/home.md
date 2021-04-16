@@ -24,15 +24,15 @@ header:
     kids gain important skills and attitudes that schools don’t teach and exams
     never test.
   button: Start Free Trial
-  banner_img: /img/image.webp
+  banner_img: img/image.webp
 features:
   title: Live online coding courses for kids of grades 4-9
   feature_list:
-    - image: https://stayqrious.com/wp-content/uploads/2020/09/cd1.png
+    - image: img/code.webp
       title: Coding Fundamentals
     - image: https://stayqrious.com/wp-content/uploads/2020/09/sf.png
       title: STEM foundations
-    - image: https://stayqrious.com/wp-content/uploads/2020/09/cd3.png
+    - image: img/idea.webp
       title: How to learn, think, and solve problems creatively.
     - image: https://stayqrious.com/wp-content/uploads/2020/09/cd4.png
       title: How to lead teams and communicate confidently.
