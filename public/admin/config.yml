@@ -166,7 +166,12 @@ collections:
 
   - name: "settings"
     label: "Settings"
-    create: false
-    file: "src/content/setttings.md"
-    fields:
-      - { label: Google Analytics ID, name: google_analytics, widget: string, required: false }
+    delete: false
+    editor:
+      preview: false
+    files:
+      - file:  "src/content/setttings.md"
+        label: 'Global Settings'
+        name: 'global-settings'
+        fields:
+          - { label: Google Analytics ID, name: google_analytics, widget: string, required: false }
