@@ -17,23 +17,28 @@ import mobilecheck from "utils/mobilecheck";
 import { ISignUpStore } from "stores/SignupStore";
 import { BlueTextField } from "components/generics/BlueTextField";
 import { useRouter } from "next/router";
+import { withCookies } from "react-cookie";
 
 interface RegistrationFormProps {
     signUpStore: ISignUpStore;
     onFormSubmit: () => void;
     // location?: Location;
+    allCookies: { key: string }
 }
 
 function SignUpForm({
     signUpStore,
     onFormSubmit,
     // location
+    allCookies,
+    ...props
 }: RegistrationFormProps) {
     const router = useRouter();
+    // const [cookie, setCookie] = useCookies();
     const queryparams = useMemo(() => router.query, [router.query]);
     // const { state } = location;
     // const { from: fromLocation } = (state || { from: undefined }) as { from: Location };
-
+    const cookies = allCookies;
     useEffect(() => {
         if (window.innerWidth > 1024 && !mobilecheck()) {
             // assume laptop??
@@ -44,7 +49,7 @@ function SignUpForm({
     useEffect(() => {
         const trackingUrlParams = ['utm_source', 'utm_campaign', 'utm_medium', 'utm_term', 'utm_content', 'gclid'];
         const filteredParams = trackingUrlParams.reduce<{ [key: string]: string }>((obj: any, key) => {
-            const val = queryparams[key];
+            const val = cookies[key] || queryparams[key];
             if (val) {
                 obj[key] = val;
             }
@@ -53,9 +58,10 @@ function SignUpForm({
 
         if (document.referrer) filteredParams['referred_url'] = document.referrer;
         // if (fromLocation) filteredParams['landing_page'] = fromLocation.pathname;
+        console.log('filteredParams', filteredParams);
 
         signUpStore.setExtraInfo(filteredParams);
-    }, [queryparams,/* fromLocation,*/ signUpStore]);
+    }, [queryparams, cookies,/* fromLocation,*/ signUpStore]);
 
     return (
         <>
@@ -267,4 +273,4 @@ function SignUpForm({
     )
 }
 
-export default observer(SignUpForm);
+export default withCookies(observer(SignUpForm));

@@ -70,7 +70,7 @@ export default class MyDocument extends Document {
                             </>
                         )
                     }
-                    <link rel="icon" href="../assets/favicon" />
+                    <link rel="icon" href="assets/favicon" />
                     {/* <link href="icon" href="favicon" /> */}
                 </Head>
                 <body>

@@ -162,3 +162,11 @@ collections:
             }
           - { label: og:label1, name: og_label1, widget: string, required: false }
           - { label: og:data1, name: og_data1, widget: string, required: false }
+
+
+  - name: "settings"
+    label: "Settings"
+    create: false
+    file: "src/content/setttings.md"
+    fields:
+      - { label: Google Analytics ID, name: google_analytics, widget: string, required: false }

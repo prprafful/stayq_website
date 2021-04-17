@@ -38,13 +38,17 @@ function Header() {
                             Curriculum
                         </Link>
                     </div>
-                    <Button
-                        variant="contained"
-                        color="primary"
-                        className="sbutton"
+                    <Link
+                        href="/register/"
                     >
-                        Start free trial
-                    </Button>
+                        <Button
+                            variant="contained"
+                            color="primary"
+                            className="sbutton"
+                        >
+                            Start free trial
+                        </Button>
+                    </Link>
                 </div>
 
             </div>
