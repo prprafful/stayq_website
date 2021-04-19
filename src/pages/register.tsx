@@ -1,12 +1,13 @@
-import React, { useEffect, useMemo, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { observer } from 'mobx-react-lite';
 import Router, { useRouter } from 'next/router';
-import { useStores } from '../hooks/useStores';
-import Layout from '../components/generics/Layout';
-import SignUpForm from '../components/register/SignUpForm';
-import SQDialog from '../components/generics/SQDialog';
-import OtpPopUp from 'components/register/OtpPopUp';
 import { createUseStyles } from 'react-jss';
+
+import { useStores } from 'hooks/useStores';
+import Layout from 'components/generics/Layout';
+import SignUpForm from 'components/register/SignUpForm';
+import SQDialog from 'components/generics/SQDialog';
+import OtpPopUp from 'components/register/OtpPopUp';
 
 const useStyles = createUseStyles({
     container: {
@@ -38,7 +39,6 @@ const useStyles = createUseStyles({
 const Register = () => {
     const classes = useStyles();
     const router = useRouter();
-    const [showOTPForm, setShowOTPForm] = useState(false);
 
     const { signUpStore, userStore } = useStores();
 
@@ -57,12 +57,13 @@ const Register = () => {
 
 
     const onFormSubmit = () => {
-        signUpStore.guestLogin().then((response) => {
-            if (!response.problem) {
-                signUpStore.postOtp();
-                setShowOTPForm(true);
-            }
-        });
+        // signUpStore.guestLogin().then((response) => {
+        //     if (!response.problem) {
+        //         signUpStore.postOtp();
+        //         setShowOTPForm(true);
+        //     }
+        // });
+        userStore.pullUser();
     }
 
     return (
@@ -75,38 +76,6 @@ const Register = () => {
                     signUpStore={signUpStore}
                     onFormSubmit={onFormSubmit}
                 />
-
-                {showOTPForm && (
-                    <SQDialog
-                        disableBackdropClick
-                        disableEscapeKeyDown
-                        open={true}
-                        classes={{ paper: classes.paper }}
-                        onClose={() => { }}
-                    >
-                        <OtpPopUp
-                            signUpStore={signUpStore}
-                            phoneNumber={signUpStore.countryCode + signUpStore.phone}
-                            onEditNumber={() => {
-                                setShowOTPForm(false);
-                            }}
-                            onSkipOtp={() => {
-                                setShowOTPForm(false);
-                            }}
-                            onSubmit={() =>
-                                signUpStore.signup().then(() => {
-                                    if (signUpStore.errors.size === 0) {
-                                        userStore.pullUser();
-                                    } else {
-                                        if (!signUpStore.errors.has('otp')) {
-                                            setShowOTPForm(false);
-                                        }
-                                    }
-                                })
-                            }
-                        />
-                    </SQDialog>
-                )}
                 <div className={classes.footerInfo}>
                     <p>
                         By registering, I agree to StayQrious{' '}

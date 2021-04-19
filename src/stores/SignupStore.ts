@@ -1,4 +1,4 @@
-import { guestLogin, postOtp, signup } from 'api';
+import { guestLogin, postOtp, signup, signupOtp } from 'api';
 import { ApiResponse } from 'apisauce';
 import { flow, Instance, types, getEnv } from 'mobx-state-tree';
 
@@ -8,7 +8,6 @@ const SignUpStore = types
     errors: types.map(types.array(types.string)),
     parentName: types.optional(types.string, ''),
     parentEmail: types.optional(types.string, ''),
-    countryCode: types.optional(types.string, ''),
     phone: types.optional(types.string, ''),
     kidName: types.optional(types.string, ''),
     kidSchool: types.optional(types.string, ''),
@@ -64,10 +63,6 @@ const SignUpStore = types
     setExtraInfo(params: { [key: string]: string }) {
       self.extraInfo.merge(params);
     },
-    setCountryCode(code: string) {
-      self.errors.delete('phone');
-      self.countryCode = code;
-    },
     setHasLaptop(option: boolean) {
       self.hasLaptop = option;
     },
@@ -85,7 +80,7 @@ const SignUpStore = types
         const response: ApiResponse<any> = yield signup({
           parentName: self.parentName,
           parentEmail: self.parentEmail,
-          phone: self.countryCode + self.phone,
+          phone: self.phone,
           kidName: self.kidName,
           kidSchool: self.kidSchool,
           grade: self.kidGrade,
@@ -110,19 +105,29 @@ const SignUpStore = types
       }
     }),
     postOtp: flow(function* () {
+      self.loading = true;
       self.errors.clear();
       try {
-        const response: ApiResponse<any> = yield postOtp({
-          username: self.username,
+        const response: ApiResponse<any> = yield signupOtp({
+          parentName: self.parentName,
+          parentEmail: self.parentEmail,
+          phone: self.phone,
+          kidName: self.kidName,
+          kidSchool: self.kidSchool,
+          grade: self.kidGrade,
+          extraInfo: self.extraInfo,
         });
         if (response.problem) {
-          if (response.status === 403) {
-            self.errors.merge({ otp: ['Unable to send OTP'] });
+          if (response.status === 400) {
+            self.errors.merge(response.data);
+          } else {
+            self.errors.merge({ error: ["oops!! there's some issue at our end, Please try again afer some time"] });
           }
-          return response;
+          return;
         }
         return response;
       } finally {
+        self.loading = false;
       }
     }),
     guestLogin: flow(function* () {
@@ -131,7 +136,6 @@ const SignUpStore = types
         const response: ApiResponse<any> = yield guestLogin({
           name: self.kidName,
           grade: self.kidGrade,
-          phone: self.countryCode + self.phone,
         });
         if (response.problem) {
           if (response.status === 400) {
@@ -151,4 +155,4 @@ const SignUpStore = types
 
 export default SignUpStore;
 
-export interface ISignUpStore extends Instance<typeof SignUpStore> { }
+export interface ISignUpStore extends Instance<typeof SignUpStore> {}

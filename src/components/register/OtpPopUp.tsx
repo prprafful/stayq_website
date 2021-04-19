@@ -1,9 +1,9 @@
 import { observer } from 'mobx-react-lite';
 import React, { useEffect, useState } from 'react';
 import { createUseStyles } from 'react-jss';
-import { ISignUpStore } from '../../stores/SignupStore';
-import OTPInput from '../styledComponents/OTPInput';
-import edit from '../../assets/redesign/icons/edit.svg';
+import { ISignUpStore } from 'stores/SignupStore';
+import OTPInput from 'components/styledComponents/OTPInput';
+import Edit from 'assets/redesign/icons/edit.svg';
 import SQButton from 'components/generics/SQButton';
 
 const useStyles = createUseStyles({
@@ -64,7 +64,7 @@ const useStyles = createUseStyles({
   },
   skipButton: {
     fontWeight: 'bold',
-    cursor: 'pointer'
+    cursor: 'pointer',
   },
 });
 
@@ -72,13 +72,13 @@ interface OtpPopUpProps {
   signUpStore: ISignUpStore;
   phoneNumber: string;
   onEditNumber: () => void;
-  onSkipOtp: () => void;
+  onSkipOtp?: () => void;
   onSubmit: () => void;
 }
 
 const OtpPopUp = ({ phoneNumber, onEditNumber, onSkipOtp, onSubmit, signUpStore }: OtpPopUpProps) => {
-  const [OTPSent, setOTPSent] = useState(false);
-  const [secondsLeft, setSecondsLeft] = useState(-1);
+  const [OTPSent, setOTPSent] = useState(true);
+  const [secondsLeft, setSecondsLeft] = useState(60);
 
   useEffect(() => {
     if (secondsLeft > 0) {
@@ -111,7 +111,7 @@ const OtpPopUp = ({ phoneNumber, onEditNumber, onSkipOtp, onSubmit, signUpStore 
         <p>
           Please enter the otp sent to{' '}
           <span className={classes.number} onClick={() => onEditNumber()}>
-            {phoneNumber} <img src={edit} alt="" />
+            {phoneNumber} <Edit />
           </span>{' '}
           to verify your identity and access exclusive member-only features
         </p>
@@ -133,15 +133,17 @@ const OtpPopUp = ({ phoneNumber, onEditNumber, onSkipOtp, onSubmit, signUpStore 
           disabled={OTPSent && secondsLeft !== 0}
           className={classes.submitButton}
         >
-          Resend OTP
+          {secondsLeft > 0 ? 'Retry in: ' + secondsLeft : 'Resend OTP'}
         </SQButton>
         <SQButton className={classes.submitButton} primary disabled={signUpStore.otp.length < 4} onClick={onSubmit}>
           Submit
         </SQButton>
       </div>
-      <div className={classes.skipButton} onClick={onSkipOtp}>
-        Skip For Now
-      </div>
+      {onSkipOtp && (
+        <div className={classes.skipButton} onClick={onSkipOtp}>
+          Skip For Now
+        </div>
+      )}
     </div>
   );
 };

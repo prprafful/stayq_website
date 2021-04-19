@@ -1,3 +1,27 @@
+meta_fields: &META_FIELDS
+  - { label: Title, name: title, widget: string }
+  - { label: Description, name: description, widget: string }
+  - { label: og:locale, name: og_locale, widget: string }
+  - { label: og:type, name: og_type, widget: string }
+  - { label: og:title, name: og_title, widget: string }
+  - { label: og:description, name: og_description, widget: string }
+  - { label: og:url, name: og_url, widget: string }
+  - { label: og:site_name, name: og_site_name, widget: string }
+  - { label: og:image, name: og_image, widget: string }
+  - { label: og:image_width, name: og_image_width, widget: string }
+  - {
+      label: og:image_height,
+      name: og_image_height,
+      widget: string,
+    }
+  - {
+      label: og:twitter_card,
+      name: og_twitter_card,
+      widget: string,
+    }
+  - { label: og:label1, name: og_label1, widget: string }
+  - { label: og:data1, name: og_data1, widget: string }
+
 backend:
   name: github
   branch: poc
@@ -20,29 +44,8 @@ collections:
             name: "meta"
             widget: "object"
             collapsed: true
-            fields:
-              - { label: Title, name: title, widget: string }
-              - { label: Description, name: description, widget: string }
-              - { label: og:locale, name: og_locale, widget: string }
-              - { label: og:type, name: og_type, widget: string }
-              - { label: og:title, name: og_title, widget: string }
-              - { label: og:description, name: og_description, widget: string }
-              - { label: og:url, name: og_url, widget: string }
-              - { label: og:site_name, name: og_site_name, widget: string }
-              - { label: og:image, name: og_image, widget: string }
-              - { label: og:image_width, name: og_image_width, widget: string }
-              - {
-                  label: og:image_height,
-                  name: og_image_height,
-                  widget: string,
-                }
-              - {
-                  label: og:twitter_card,
-                  name: og_twitter_card,
-                  widget: string,
-                }
-              - { label: og:label1, name: og_label1, widget: string }
-              - { label: og:data1, name: og_data1, widget: string }
+            fields: *META_FIELDS
+              
           - label: "Header"
             name: "header"
             widget: "object"

@@ -1,3 +1,4 @@
+import { useStores } from 'hooks/useStores';
 import { AppProps } from 'next/dist/next-server/lib/router/router'
 import { useRouter } from 'next/router';
 import { useEffect } from 'react';
@@ -15,6 +16,8 @@ function MyApp({ Component, pageProps }: AppProps) {
 
     const router = useRouter();
     const [cookie, setCookie] = useCookies();
+    const { userStore, commonStore, authStore } = useStores();
+
 
     useEffect(() => {
         const handleRouteChange = (url: URL) => {
@@ -52,6 +55,27 @@ function MyApp({ Component, pageProps }: AppProps) {
         }
     }, [router.query])
 
+    useEffect(() => {
+        if (commonStore.appLoaded) {
+            return;
+        }
+
+        if (!commonStore.token) {
+            authStore.logout();
+            commonStore.setAppLoaded();
+            return;
+        }
+
+        userStore
+            .pullUser()
+            .then(() => {
+                commonStore.setAppLoaded();
+            })
+            .catch((err) => {
+                console.error(err);
+                commonStore.setAppLoadError();
+            });
+    })
 
     return (
         <CookiesProvider>

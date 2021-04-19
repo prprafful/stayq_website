@@ -3,6 +3,7 @@ import axios, { CancelToken } from 'axios';
 import { authStore, commonStore } from 'stores';
 import config from '../config';
 
+
 const api = create({
     baseURL: config.API_BASE_URL,
     timeout: 5000,
@@ -53,16 +54,8 @@ export const login = ({ username, password, token }: LoginProps) =>
 
 export const postOtp = ({ username }: OtpProps) => api.post(`users/otp/request`, { username });
 
-export const guestLogin = ({
-    name,
-    grade,
-    phone
-}: {
-    name: string,
-    grade: string,
-    phone: string,
-}) =>
-    api.post('users/guest/login/', { name, grade, phone });
+export const guestLogin = ({ name, grade }: { name: string; grade: string }) =>
+    api.post('users/guest/login/', { name, grade });
 
 export const getCurrentUser = () => api.get(`users/me/`);
 
@@ -71,3 +64,18 @@ interface UserProps {
 }
 
 export const saveCurrentUser = ({ name }: UserProps) => api.patch(`users/me/`, { name });
+
+interface SignupOtpProps {
+    parentName: string;
+    parentEmail: string;
+    phone: string;
+    kidName: string;
+    kidSchool: string;
+    grade: string;
+    extraInfo: Map<string, string>;
+}
+export const signupOtp = ({ parentName, parentEmail, phone, kidName, kidSchool, grade, extraInfo }: SignupOtpProps) =>
+    api.post(`auth/student/request_otp/`, { parentName, parentEmail, phone, kidName, kidSchool, grade, extraInfo });
+
+
+export default api;
