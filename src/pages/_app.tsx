@@ -4,6 +4,7 @@ import { useRouter } from 'next/router';
 import { useEffect } from 'react';
 import { useCookies } from 'react-cookie';
 import { CookiesProvider, withCookies } from 'react-cookie';
+import { GTMPageView } from 'utils/gtm';
 import '../styles/globals.css'
 
 import * as gtag from '../utils/gtag';
@@ -21,7 +22,10 @@ function MyApp({ Component, pageProps }: AppProps) {
 
     useEffect(() => {
         const handleRouteChange = (url: URL) => {
-            if (isProduction) gtag.pageView(url);
+            if (isProduction) {
+                GTMPageView(url);
+                gtag.pageView(url);
+            }
         };
         router.events.on("routeChangeComplete", handleRouteChange);
         return () => {
