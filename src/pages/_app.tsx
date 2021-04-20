@@ -1,41 +1,48 @@
-import { useStores } from 'hooks/useStores';
+import { useEffect, useState } from 'react';
 import { AppProps } from 'next/dist/next-server/lib/router/router'
 import { useRouter } from 'next/router';
-import { useEffect } from 'react';
 import { useCookies } from 'react-cookie';
-import { CookiesProvider, withCookies } from 'react-cookie';
-import { GTMPageView } from 'utils/gtm';
-import '../styles/globals.css'
+import { CookiesProvider } from 'react-cookie';
 
-import * as gtag from '../utils/gtag';
+import { GTMPageView } from 'utils/gtm';
+import { useStores } from 'hooks/useStores';
+import 'styles/globals.css'
+
+import * as gtag from 'utils/gtag';
 
 
 const isProduction = true
-// const isProduction = process.env.NODE_ENV === "production";
+// const isProduction = process.env.NODE_ENV === 'production';
 
 function MyApp({ Component, pageProps }: AppProps) {
 
     const router = useRouter();
     const [cookie, setCookie] = useCookies();
     const { userStore, commonStore, authStore } = useStores();
-
+    const [loading, setLoading] = useState(false);
 
     useEffect(() => {
+        const handleStart = (url: string) => (url !== router.asPath) && setLoading(true);
+        // const handleComplete = (url) => (url === router.asPath) && setLoading(false);
+
         const handleRouteChange = (url: URL) => {
             if (isProduction) {
                 GTMPageView(url);
                 gtag.pageView(url);
             }
+            setLoading(false);
         };
-        router.events.on("routeChangeComplete", handleRouteChange);
+
+        router.events.on('routerChangeStart', handleStart);
+        router.events.on('routeChangeComplete', handleRouteChange);
         return () => {
-            router.events.off("routeChangeComplete", handleRouteChange);
+            router.events.off('routerChangeStart', handleStart);
+            router.events.off('routeChangeComplete', handleRouteChange);
         }
     }, [router,])
 
     useEffect(() => {
         const queryParams = router.query;
-        console.log(queryParams);
 
         const trackingUrlParams = ['utm_source', 'utm_campaign', 'utm_medium', 'utm_term', 'utm_content', 'gclid'];
         if (queryParams.utm_source) {

@@ -5,11 +5,12 @@ import { observer } from "mobx-react-lite";
 import { useRouter } from "next/router";
 import { withCookies } from "react-cookie";
 import PhoneInput from 'react-phone-input-2';
+import { createUseStyles } from "react-jss";
+import { BlueTextField } from "components/generics/BlueTextField";
 import 'react-phone-input-2/lib/style.css';
 
 import Config from 'config';
 import SQButton from "components/generics/SQButton";
-import { BlueTextField } from "components/generics/BlueTextField";
 import GraduateCapSVG from 'assets/redesign/icons/graduateCap.svg';
 import LaptopSVG from 'assets/redesign/icons/laptop.svg';
 import Mail from 'assets/redesign/icons/mail.svg';
@@ -18,8 +19,6 @@ import Person from 'assets/redesign/icons/person.svg';
 import SchoolSVG from 'assets/redesign/icons/school.svg';
 import mobilecheck from "utils/mobilecheck";
 import { ISignUpStore } from "stores/SignupStore";
-import styles from "styles/pages/register.module.scss";
-import { createUseStyles } from "react-jss";
 import OtpPopUp from "./OtpPopUp";
 import SQDialog from "components/generics/SQDialog";
 
@@ -64,6 +63,7 @@ const useStyles = createUseStyles({
         borderRadius: 5,
         transition: 'all 0.1s ease-in-out',
         cursor: 'pointer',
+        border: '1px solid #e4e4e4',
     },
     switchItemSelected: {
         backgroundColor: '#FCEBB2',

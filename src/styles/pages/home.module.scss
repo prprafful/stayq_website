@@ -5,16 +5,20 @@
     align-items: center;
     max-width: 1140px;
     margin: 0 auto;
+    padding: 80px 0 80px 0;
     .textSection {
-      width: 50%;
+      width: 47%;
+      padding: 10px;
       .title {
         font-weight: 700;
         font-size: 40px;
         margin-bottom: 2rem;
         line-height: 64px;
+        color: #1f313d;
       }
       .description {
         font-size: 16px;
+        font-weight: 500;
         margin-bottom: 2rem;
         line-height: 26px;
       }
@@ -22,7 +26,8 @@
     .banner {
       width: 48%;
       .bannerImage {
-        width: 100%;
+        margin-top: 40px;
+        max-width: 100%;
         height: auto;
       }
     }
@@ -35,26 +40,82 @@
     align-items: center;
     padding: 50px;
     flex-direction: column;
-    .title {
-      font-weight: 700;
-      font-size: 40px;
-      margin-bottom: 2rem;
-      line-height: 64px;
-    }
+    text-align: center;
+    .featuresWrapper {
+      max-width: 1140px;
 
-    .featureList {
-      display: flex;
-      flex-wrap: wrap;
-      .featureItem {
-        width: 300px;
+      .title {
+        font-weight: 700;
+        font-size: 32px;
+        margin-bottom: 2rem;
+        line-height: 64px;
+        color: #1f313d;
+      }
+
+      .featureList {
+        display: flex;
         text-align: center;
+        flex-wrap: wrap;
+        .featureItem {
+          width: 25%;
+          text-align: center;
+          padding: 10px;
+          .featureImg {
+            width: 80%;
+          }
+          .featureTitle {
+            font-size: 18px;
+            font-weight: 600;
+            line-height: 26px;
+          }
+        }
       }
     }
   }
 }
 
-@media screen and (max-width: 1150px) {
-  .header {
-    flex-direction: column;
+@media screen and (max-width: 767px) {
+  .container {
+    .header {
+      flex-direction: column;
+      padding: 35px 0 35px 0;
+      .textSection {
+        width: 100%;
+        padding: 0 10px;
+        .title {
+          font-weight: 700;
+          font-size: 30px;
+          margin-bottom: 2rem;
+          line-height: 50px;
+        }
+      }
+      .banner {
+        width: 100%;
+      }
+    }
+    .features {
+      padding: 65px 0 65px 0;
+      .featuresWrapper {
+        padding: 10px;
+        text-align: center;
+        .title {
+          font-weight: 900;
+          font-size: 24px;
+          margin-bottom: 2rem;
+          line-height: 1;
+          color: #1f313d;
+        }
+        .featureList {
+          display: block;
+          .featureItem {
+            width: 250px;
+            text-align: center;
+            margin: 0 auto;
+            .featureTitle {
+            }
+          }
+        }
+      }
+    }
   }
 }

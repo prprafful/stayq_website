@@ -1,7 +1,9 @@
 import Document, { Html, Head, Main, NextScript } from "next/document";
 import { SheetsRegistry, JssProvider, createGenerateId } from "react-jss";
-import { GA_TRACKING_ID } from "../utils/gtag";
 import { ServerStyleSheets } from '@material-ui/core/styles';
+
+import { GA_TRACKING_ID } from "utils/gtag";
+
 
 // const isProduction = process.env.NODE_ENV === "production";
 const isProduction = true
@@ -99,8 +101,6 @@ export default class MyDocument extends Document {
                         height="0" width="0" style="display:none;visibility:hidden"></iframe>`
                         }}
                     ></noscript>
-
-
                     <Main />
                     <NextScript />
                 </body>

@@ -1,5 +1,7 @@
 import Link from 'next/link';
 import { Button } from '@material-ui/core';
+import PhoneCallbackIcon from '@material-ui/icons/PhoneCallback';
+import MenuIcon from '@material-ui/icons/Menu';
 // import Image from 'next/image';
 import styles from '../../styles/components/header.module.scss';
 
@@ -7,23 +9,13 @@ function Header() {
     return (
         <div className={styles.headerContainer}>
             <div className={styles.header}>
-                <div>
-                    {/* <Link
-                        href="/"
-                    >
-                        <Image
-                            src={'https://res.cloudinary.com/dttau3gcw/image/upload/v1618557162/image_p3dnha.png'}
-                            height={50}
-                            width={250}
-                        />
-                    </Link> */}
-
+                <div className={styles.brand}>
                     <Link
                         href="/"
                     >
                         <img
                             src={'https://res.cloudinary.com/dttau3gcw/image/upload/v1618557162/image_p3dnha.png'}
-                            className="img"
+                            className={`img ${styles.brandImg}`}
                             height={50}
                             width={250}
                         />
@@ -49,6 +41,19 @@ function Header() {
                             Start free trial
                         </Button>
                     </Link>
+                </div>
+
+
+                <div className={styles.mobileMenuList}>
+                    <div className={styles.contact}>
+                        <PhoneCallbackIcon />
+                        <div className={styles.contactNo}>
+                            9773600599
+                        </div>
+
+                    </div>
+                    <MenuIcon />
+
                 </div>
 
             </div>

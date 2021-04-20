@@ -81,7 +81,7 @@ async function init({ options = {}, handleInsert } = {}) {
   };
 }
 
-const cloudinaryMediaLibrary = { name: 'cloudinary', init };
+const s3MediaLibrary = { name: 's3', init };
 
-export const NetlifyCmsMediaLibraryCloudinary = cloudinaryMediaLibrary;
-export default cloudinaryMediaLibrary;
+export const NetlifyCmsMediaLibraryCloudinary = s3MediaLibrary;
+export default s3MediaLibrary;

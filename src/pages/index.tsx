@@ -50,27 +50,30 @@ function Home({
                 </div>
 
                 <div className={styles.features}>
-                    <Typography variant="h1" className={styles.title}>{features.title}</Typography>
-                    <div className={styles.featureList}>
-                        {
-                            features.feature_list.map((item, index) => (
-                                <div
-                                    key={index}
-                                    className={styles.featureItem}
-                                >
-                                    <img
-                                        src={item.image}
-                                        className="img"
-                                        height={100}
-                                        width={100}
-                                    />
+                    <div className={styles.featuresWrapper}>
 
-                                    <Typography variant="h6">
-                                        {item.title}
-                                    </Typography>
-                                </div>
-                            ))
-                        }
+                        <Typography variant="h1" className={styles.title}>{features.title}</Typography>
+                        <div className={styles.featureList}>
+                            {
+                                features.feature_list.map((item, index) => (
+                                    <div
+                                        key={index}
+                                        className={styles.featureItem}
+                                    >
+                                        <img
+                                            src={item.image}
+                                            className={`img ${styles.featureImg}`}
+                                            height={100}
+                                            width={100}
+                                        />
+
+                                        <Typography className={styles.featureTitle} variant="h6">
+                                            {item.title}
+                                        </Typography>
+                                    </div>
+                                ))
+                            }
+                        </div>
                     </div>
                 </div>
             </div>
