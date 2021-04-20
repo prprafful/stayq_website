@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from 'react';
+import { useEffect, useMemo } from 'react';
 import { observer } from 'mobx-react-lite';
 import Router, { useRouter } from 'next/router';
 import { createUseStyles } from 'react-jss';
@@ -6,8 +6,6 @@ import { createUseStyles } from 'react-jss';
 import { useStores } from 'hooks/useStores';
 import Layout from 'components/generics/Layout';
 import SignUpForm from 'components/register/SignUpForm';
-import SQDialog from 'components/generics/SQDialog';
-import OtpPopUp from 'components/register/OtpPopUp';
 
 const useStyles = createUseStyles({
     container: {
@@ -44,25 +42,19 @@ const Register = () => {
 
     const queryparams = useMemo(() => router.query, [router.query]);
 
-    const nextUrl = queryparams['next'];
+    const nextUrl: any = queryparams['next']; //string | string[] | URL
 
     useEffect(() => {
         if (userStore.currentUser) {
             Router.push('/dashboard/');
         }
         if (signUpStore.signupSuccess) {
-            Router.push('/dashboard/');
+            Router.push(nextUrl || '/dashboard/');
         }
-    }, [userStore.currentUser, signUpStore.signupSuccess,]);
+    }, [userStore.currentUser, signUpStore.signupSuccess, nextUrl]);
 
 
     const onFormSubmit = () => {
-        // signUpStore.guestLogin().then((response) => {
-        //     if (!response.problem) {
-        //         signUpStore.postOtp();
-        //         setShowOTPForm(true);
-        //     }
-        // });
         userStore.pullUser();
     }
 

@@ -1,15 +1,18 @@
 import { useEffect, useMemo, useState } from "react";
-import { FormHelperText, InputAdornment, Typography } from "@material-ui/core";
+import FormHelperText from "@material-ui/core/FormHelperText";
+import Typography from "@material-ui/core/Typography";
+import InputAdornment from "@material-ui/core/InputAdornment";
+
 import clsx from "clsx";
 import { observer } from "mobx-react-lite";
 import { useRouter } from "next/router";
 import { withCookies } from "react-cookie";
 import PhoneInput from 'react-phone-input-2';
 import { createUseStyles } from "react-jss";
-import { BlueTextField } from "components/generics/BlueTextField";
 import 'react-phone-input-2/lib/style.css';
 
 import Config from 'config';
+import { BlueTextField } from "components/generics/BlueTextField";
 import SQButton from "components/generics/SQButton";
 import GraduateCapSVG from 'assets/redesign/icons/graduateCap.svg';
 import LaptopSVG from 'assets/redesign/icons/laptop.svg';
@@ -309,7 +312,6 @@ function SignUpForm({
                                 </InputAdornment>
                             ),
                         }}
-                    // className={classes.field}
                     />
                     <div
                         className={classes.formtext}

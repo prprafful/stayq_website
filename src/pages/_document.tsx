@@ -91,8 +91,8 @@ export default class MyDocument extends Document {
                             </>
                         )
                     }
-                    <link rel="icon" href="assets/favicon" />
-                    {/* <link href="icon" href="favicon" /> */}
+                    {/* <link rel="icon" href="favicon" /> */}
+                    {/* <link href="assets/favicon" /> */}
                 </Head>
                 <body>
                     <noscript

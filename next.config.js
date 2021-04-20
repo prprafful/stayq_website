@@ -13,6 +13,15 @@ module.exports = {
             },
             use: ["@svgr/webpack"]
         });
+        cfg.module.rules.push(
+            {
+                test: /\.(png|jpe?g|gif|jp2|webp)$/,
+                loader: 'file-loader',
+                issuer: {
+                    test: /\.(js|ts)x?$/,
+                },
+            }
+        )
         return cfg;
     },
     target: 'serverless',
