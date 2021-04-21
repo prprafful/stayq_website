@@ -9,6 +9,7 @@ import AccessTicks from 'components/masterclass/AccessTicks';
 // import { Location } from 'history';
 import SignUpForm from 'components/register/SignUpForm';
 import Image from 'next/image';
+import SessionCard from 'components/masterclass/SessionCard';
 // import MinionsInQueuePNG from 'assets/redesign/artwork/MinionsInQueue.png';
 // import SessionCard from 'components/SessionCard';
 // import { useHistory } from 'react-router';
@@ -27,7 +28,7 @@ const useStyles = makeStyles({
         color: '#2772b4',
         flexDirection: 'column',
         '@media (min-width: 1024px)': {
-            padding: [10, '10%'],
+            padding: [10, 10],
         },
     },
     title: {
@@ -97,7 +98,7 @@ function MasterclassRegisterPage(
 ) {
     const {
         signUpStore,
-        // masterclassStore,
+        masterclassStore,
         userStore
     } = useStores();
 
@@ -117,23 +118,23 @@ function MasterclassRegisterPage(
     // }, [userStore.currentUser, history, fromLocation]);
 
     useEffect(() => {
-        // masterclassStore.fetchUpcomingOpenSessions();
+        masterclassStore.fetchUpcomingOpenSessions();
     }, []);
-
+    
     return (
         <Layout
             title="Masterclass Register :: StayQrious"
         >
             <SQDialog
                 // fullWidth={true}
-                maxWidth={'md'}
+                // maxWidth={'sm'}
                 disableBackdropClick
                 disableEscapeKeyDown
                 open={true}
                 classes={{ paper: classes.paper }}
                 onClose={() => { }}
                 fullScreen={fullScreen}
-                >
+            >
                 <div className={classes.container}>
                     <h1 className={classes.title}>Book your slots for StayQrious Masterclasses</h1>
                     <AccessTicks masterclass certificates member />
@@ -147,7 +148,7 @@ function MasterclassRegisterPage(
                                 height={400}
                             />
                             <div className={classes.masterclassList}>
-                                {/* {masterclassStore.upcomingSessions.map((masterclass, idx) => {
+                                {masterclassStore.upcomingSessions.map((masterclass, idx) => {
                                     return (
                                         masterclass && (
                                             <div
@@ -159,22 +160,22 @@ function MasterclassRegisterPage(
                                             </div>
                                         )
                                     );
-                                })} */}
+                                })}
                             </div>
                         </div>
                         <div className={classes.formContainer}>
                             <SignUpForm
                                 signUpStore={signUpStore}
                                 onFormSubmit={() => {
-                                    // const session = masterclassStore.upcomingSessions[selectedMasterclass];
-                                    // if (session) {
-                                    //     masterclassStore.masterclassRegister(session.name).then(() => {
-                                    //         userStore.pullUser();
-                                    //         window.location.pathname = '/masterclass/' + session.name;
-                                    //     });
-                                    // } else {
-                                    //     window.location.pathname = '/';
-                                    // }
+                                    const session = masterclassStore.upcomingSessions[selectedMasterclass];
+                                    if (session) {
+                                        masterclassStore.masterclassRegister(session.name).then(() => {
+                                            userStore.pullUser();
+                                            window.location.pathname = '/masterclass/' + session.name;
+                                        });
+                                    } else {
+                                        window.location.pathname = '/';
+                                    }
                                 }}
                             />
                         </div>

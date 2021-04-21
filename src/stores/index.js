@@ -7,12 +7,14 @@ import CommonStore from "./CommonStore";
 import SignUpStore from "./SignupStore";
 import UserStore from "./UserStore";
 import AuthStore from "./AuthStore";
+import MasterclassStore from "./MasterclassStore";
+
 
 export const userStore = UserStore.create({});
 export const commonStore = CommonStore.create({});
 export const signUpStore = SignUpStore.create({}, { userStore, commonStore });
 export const authStore = AuthStore.create({}, { userStore, commonStore });
-
+export const masterclassStore = MasterclassStore.create({}, { commonStore });
 
 // let _store = {};
 // export const useStore = () => {

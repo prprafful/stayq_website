@@ -78,4 +78,9 @@ export const signupOtp = ({ parentName, parentEmail, phone, kidName, kidSchool, 
     api.post(`auth/student/request_otp/`, { parentName, parentEmail, phone, kidName, kidSchool, grade, extraInfo });
 
 
+export const fetchOpenMasterClassSession = () => api.get('masterclass_open/');
+
+export const masterClassRegister = ({ sessionName }: { sessionName: string }) =>
+    api.post(`masterclass/${sessionName}/register/`, { session_name: sessionName });
+
 export default api;

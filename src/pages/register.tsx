@@ -6,6 +6,7 @@ import { createUseStyles } from 'react-jss';
 import { useStores } from 'hooks/useStores';
 import Layout from 'components/generics/Layout';
 import SignUpForm from 'components/register/SignUpForm';
+import Link from 'next/link';
 
 const useStyles = createUseStyles({
     container: {
@@ -46,10 +47,10 @@ const Register = () => {
 
     useEffect(() => {
         if (userStore.currentUser) {
-            Router.push('/dashboard/');
+            router.push('/dashboard/');
         }
         if (signUpStore.signupSuccess) {
-            Router.push(nextUrl || '/dashboard/');
+            router.push(nextUrl || '/dashboard/');
         }
     }, [userStore.currentUser, signUpStore.signupSuccess, nextUrl]);
 
@@ -73,13 +74,14 @@ const Register = () => {
                         By registering, I agree to StayQrious{' '}
                         <a href="https://stayqrious.com/terms-and-conditions/#tnc" target="_blank" rel="noreferrer">
                             Terms &amp; Conditions
-            </a>{' '}
-            &{' '}
+                        </a>{' '}
+                        &{' '}
                         <a href="https://stayqrious.com/terms-and-conditions/#privacy_policy" target="_blank" rel="noreferrer">
                             Privacy Policy
-            </a>
+                        </a>
                         <br />
-                        {/* Already have an account? <Link to={{ pathname: '/login', state: { from: fromLocation } }}>Log in</Link> */}
+                        Already have an account? <Link href={{ pathname: '/login', query: { next: nextUrl } }}>Log in</Link>
+                        {/* , state: { from: fromLocation } }} */}
                     </p>
                 </div>
             </div>
