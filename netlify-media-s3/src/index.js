@@ -1,11 +1,31 @@
+import Aws from 'aws-sdk';
 import { pick } from 'lodash';
 import { loadScript } from 'netlify-cms-lib-util';
+
+
+const albumBuckName = "BUCKET_NAME";
+const bucketRegion = "REGION";
+const IdentityPoolId = "IDENTITY_POOL_ID";
+
+AWS.config.update({
+  region: bucketRegion,
+  credentials: new Aws.CognitoIdentityCredentials({
+    IdentityPoolId: IdentityPoolId,
+  })
+})
+
+const s3 = new AWS.S3({
+  apiVersion: "2006-03-01",
+  params: { Bucker: albumBuckName }
+})
+
 
 const defaultOptions = {
   use_secure_url: true,
   use_transformations: true,
   output_filename_only: false,
 };
+
 /**
  * This configuration hash cannot be overridden, as the values here are required
  * for the integration to work properly.

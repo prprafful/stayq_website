@@ -13,6 +13,7 @@
     "@material-ui/styles": "^4.11.3",
     "@svgr/webpack": "^5.5.0",
     "apisauce": "^2.0.1",
+    "aws-sdk": "^2.890.0",
     "clsx": "^1.1.1",
     "fecha": "^4.2.1",
     "file-loader": "^6.2.0",

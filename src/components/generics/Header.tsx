@@ -1,11 +1,15 @@
 import Link from 'next/link';
-import { Button } from '@material-ui/core';
+import { Button, Drawer, IconButton, Menu, MenuItem } from '@material-ui/core';
 import PhoneCallbackIcon from '@material-ui/icons/PhoneCallback';
 import MenuIcon from '@material-ui/icons/Menu';
 // import Image from 'next/image';
 import styles from '../../styles/components/header.module.scss';
+import { useState } from 'react';
+import { Close } from '@material-ui/icons';
 
 function Header() {
+    const [menuDrawerOpen, setMenuDrawerOpen] = useState(false);
+
     return (
         <div className={styles.headerContainer}>
             <div className={styles.header}>
@@ -52,11 +56,35 @@ function Header() {
                         </div>
 
                     </div>
-                    <MenuIcon />
-
+                    <MenuIcon
+                        onClick={() => setMenuDrawerOpen(true)}
+                    />
                 </div>
-
             </div>
+            {menuDrawerOpen && <Drawer
+                anchor="right"
+                open={menuDrawerOpen}
+                onClose={() => setMenuDrawerOpen(false)}
+            >
+                <div className={styles.drawer}>
+                    <div className={styles.closeAction}>
+                        <IconButton
+                            onClick={() => setMenuDrawerOpen(false)}
+                        >
+                            <Close />
+                        </IconButton>
+                    </div>
+                    <Link
+                        href="/curriculum"
+                    >
+                        <MenuItem
+                            button
+                        >
+                            Curriculum
+                        </MenuItem>
+                    </Link>
+                </div>
+            </Drawer>}
         </div>
     )
 }

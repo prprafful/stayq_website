@@ -15,7 +15,7 @@ function Home({
     ...props
 }) {
     const router = useRouter();
-    console.log(header)
+    
     return (
         <Layout
             meta={meta}
@@ -38,6 +38,7 @@ function Home({
                         <img
                             className={styles.bannerImage}
                             src={header.banner_img}
+                            alt={header.title}
                             height={500}
                             width={800}
                         />
@@ -63,6 +64,7 @@ function Home({
                                     >
                                         <img
                                             src={item.image}
+                                            alt={item.title}
                                             className={`img ${styles.featureImg}`}
                                             height={100}
                                             width={100}

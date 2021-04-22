@@ -81,8 +81,18 @@ const Register = () => {
                             Privacy Policy
                         </a>
                         <br />
-                        Already have an account? <Link href={{ pathname: '/login', query: { next: nextUrl } }}>Log in</Link>
-                        {/* , state: { from: fromLocation } }} */}
+                        Already have an account?
+                        <Link
+                            href={nextUrl ? {
+                                pathname: '/login',
+                                query: { next: nextUrl }
+                            } :
+                                {
+                                    pathname: '/login',
+                                }
+                            }>
+                            Log in
+                        </Link>
                     </p>
                 </div>
             </div>

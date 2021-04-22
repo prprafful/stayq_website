@@ -146,7 +146,7 @@ function SignUpForm({
     // const { state } = location;
     // const { from: fromLocation } = (state || { from: undefined }) as { from: Location };
     const nextUrl = router.query['next'];
-    
+
     const cookies = allCookies;
     useEffect(() => {
         if (window.innerWidth > 1024 && !mobilecheck()) {
