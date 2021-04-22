@@ -97,6 +97,20 @@ collections:
                 max: 10
                 fields:
                   - { label: Title, name: title, widget: string }
+          - label: "Learning Approach"
+            name: "learning_approach"
+            widget: "object"
+            fields:
+              - { label: Title, name: title, widget: string }
+              - label: "Approaches"
+                name: "approaches"
+                widget: "list"
+                max: 3
+                fields:
+                  - { label: Image, name: image, widget: image }
+                  - { label: Title, name: title, widget: string }
+
+
 
   - name: "curriculums"
     label: "Curriculums"

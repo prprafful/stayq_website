@@ -67,7 +67,7 @@ const AuthStore = types
       self.errors = '';
       try {
         const response: ApiResponse<any> = yield postOtp({
-          username: self.username,
+          phone: self.username,
         });
         if (response.problem) {
           if (response.status === 403) {

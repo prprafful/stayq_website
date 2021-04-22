@@ -29,16 +29,99 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      ul{
-          li{
-              line-height: 30px;
-              font-size: 15px;
-          }
+      ul {
+        li {
+          line-height: 30px;
+          font-size: 15px;
+        }
       }
     }
   }
-  .curriculamContainer{
+  .learningApproachContainer {
+    margin-top: 120px;
+    margin-bottom: 120px; //remove later
+    .section {
+      display: flex;
+      flex-direction: column;
+      .title {
+        font-size: 14px;
+        font-weight: 700;
+        text-transform: uppercase;
+        line-height: 14px;
+      }
+      .approachesContainer {
+        display: flex;
+        justify-content: space-between;
+        .approachesItem {
+          padding: 10px;
+          width: 20%;
+          img {
+            height: auto;
+            max-width: 100%;
+          }
+          .title {
+            text-align: center;
+            font-size: 14px;
+            font-weight: 400;
+            line-height: 18px;
+            text-transform: unset;
+          }
+        }
+      }
+    }
+  }
+  .curriculamContainer {
     background-color: rgba(207, 207, 207, 0.233);
     padding: 20px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .container {
+    .header {
+      padding: 80px 0;
+      .headerWrapper {
+        flex-direction: column;
+        padding: 10px;
+        .leftSection {
+          width: 90%;
+          .title {
+            font-size: 28px;
+            line-height: 24px;
+          }
+          .subtitle {
+            font-size: 12px;
+          }
+          .description {
+            font-size: 18px;
+            line-height: 22px;
+            margin-bottom: 2rem;
+          }
+        }
+        .rightSection {
+          width: 100%;
+          padding-top: 50px;
+        }
+      }
+    }
+    .learningApproachContainer {
+      padding: 10px;
+      .section {
+        align-items: center;
+        justify-content: center;
+        .title {
+        }
+        .approachesContainer {
+          flex-direction: column;
+          .approachesItem {
+            width: 100%;
+            img {
+            }
+            .title {
+            }
+          }
+        }
+      }
+    }
   }
 }

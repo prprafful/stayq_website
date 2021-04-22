@@ -24,6 +24,7 @@ import mobilecheck from "utils/mobilecheck";
 import { ISignUpStore } from "stores/SignupStore";
 import OtpPopUp from "./OtpPopUp";
 import SQDialog from "components/generics/SQDialog";
+import Link from "next/link";
 
 interface RegistrationFormProps {
     signUpStore: ISignUpStore;
@@ -144,6 +145,8 @@ function SignUpForm({
     const queryparams = useMemo(() => router.query, [router.query]);
     // const { state } = location;
     // const { from: fromLocation } = (state || { from: undefined }) as { from: Location };
+    const nextUrl = router.query['next'];
+    
     const cookies = allCookies;
     useEffect(() => {
         if (window.innerWidth > 1024 && !mobilecheck()) {
@@ -288,8 +291,9 @@ function SignUpForm({
                             {signUpStore.errors.get('phone')}
                             {'     '}
                             {(signUpStore.errors.get('phone') || '').toString().search('exist') >= 0 && (
-                                <></>
-                                // <Link to={{ pathname: '/login', state: { from: fromLocation, phone: signUpStore.phone } }}>Login?</Link>
+                                <>
+                                <Link href={{ pathname: '/login', query: { next: nextUrl, phone: signUpStore.phone } }}>Login?</Link>
+                                </>
                             )}
                         </FormHelperText>
                     )}

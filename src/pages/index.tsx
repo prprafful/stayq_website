@@ -1,11 +1,12 @@
 import { useRouter } from 'next/router'
-import Button from '@material-ui/core/Button';
+// import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import Image from 'next/image';
 import Layout from "../components/generics/Layout";
 
 import styles from '../styles/pages/home.module.scss';
 import matter from 'gray-matter';
+import Button from 'components/generics/Button';
 
 function Home({
     meta,

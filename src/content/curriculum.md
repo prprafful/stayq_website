@@ -32,4 +32,14 @@ courses_outcome:
     - title: Communicating Confidently
     - title: Leading Teams
     - title: Creative Problem Solving
+
+learning_approach:
+  title: STAYQRIOUS LEARNING APPROACH
+  approaches:
+    - title: Start with a curious question
+      image: 
+    - title: Build on your own with the support of a learning coach 
+      image: 
+    - title: Discuss & collaborate with your learning buddies
+      image:
 ---

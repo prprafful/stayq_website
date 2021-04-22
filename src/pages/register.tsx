@@ -14,7 +14,7 @@ const useStyles = createUseStyles({
         flexDirection: 'column',
         alignItems: 'center',
         justifyContent: 'center',
-        padding: '20px',
+        // padding: '20px',
     },
     signUp: {
         display: 'flex',
@@ -31,6 +31,7 @@ const useStyles = createUseStyles({
         maxWidth: 'unset',
     },
     footerInfo: {
+        padding: 10,
         fontSize: 12,
     }
 });

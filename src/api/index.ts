@@ -40,7 +40,7 @@ export const signup = ({ parentName, parentEmail, phone, kidName, kidSchool, gra
     api.post(`auth/student/signup/`, { parentName, parentEmail, phone, kidName, kidSchool, grade, extraInfo, otp });
 
 interface OtpProps {
-    username: string;
+    phone: string;
 }
 
 interface LoginProps {
@@ -52,7 +52,7 @@ interface LoginProps {
 export const login = ({ username, password, token }: LoginProps) =>
     api.post(`auth/token/login/`, { username, password, token });
 
-export const postOtp = ({ username }: OtpProps) => api.post(`users/otp/request`, { username });
+export const postOtp = ({ phone }: OtpProps) => api.post(`users/otp/request`, { phone });
 
 export const guestLogin = ({ name, grade }: { name: string; grade: string }) =>
     api.post('users/guest/login/', { name, grade });

@@ -16,6 +16,7 @@ function Home({
     header,
     courses_outcome,
     curriculums,
+    learning_approach,
     ...props
 }) {
 
@@ -63,6 +64,31 @@ function Home({
                         </div>
                     </div>
                 </div>
+                <div className={styles.learningApproachContainer}>
+                    <div className="max-width">
+                        <div className={styles.section}>
+                            <Typography className={styles.title} variant="h2">{learning_approach.title}</Typography>
+                            <div className={styles.approachesContainer}>
+                                {
+                                    learning_approach.approaches.map((item, index) => (
+                                        <div
+                                            key={index}
+                                            className={styles.approachesItem}
+                                        >
+                                            <img
+                                                src={item.image}
+                                                alt="learning_approach"
+                                            />
+                                            <Typography className={styles.title} variant="h3">{item.title}</Typography>
+                                        </div>
+                                    ))
+                                }
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
                 <div className={styles.curriculamContainer}>
                     <div className="max-width">
                         <Grid container>
@@ -100,9 +126,10 @@ export async function getStaticProps() {
     return {
         props: {
             meta: data.data.meta,
+            curriculums: allCurriculum,
             header: data.data.header,
             courses_outcome: data.data.courses_outcome,
-            curriculums: allCurriculum,
+            learning_approach: data.data.learning_approach,
         }
     };
 }

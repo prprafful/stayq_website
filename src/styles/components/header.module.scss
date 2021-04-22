@@ -31,6 +31,11 @@
     display: flex;
     .menuItem {
       padding: 10px 30px;
+      a{
+        text-decoration: none;
+        color: inherit;
+        text-transform: uppercase;
+      }
     }
   }
   .mobileMenuList {

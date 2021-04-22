@@ -2,6 +2,8 @@ FROM node:alpine
 
 WORKDIR /usr/app
 
+# RUN npm install -g npm@7.9.0
+
 RUN npm install --global pm2
 
 COPY ./package*.json ./
