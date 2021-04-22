@@ -19,7 +19,7 @@ function Home({
     learning_approach,
     ...props
 }) {
-
+    console.log('learning_approach', learning_approach)
     return (
         <Layout
             meta={meta}
