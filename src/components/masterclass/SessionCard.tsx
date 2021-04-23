@@ -4,6 +4,7 @@ import { observer } from 'mobx-react-lite';
 import React from 'react';
 import { ISession } from 'stores/Session';
 import DefaultSessionSVG from 'assets/redesign/icons/DefaultSession.svg';
+import Image from 'next/image';
 
 const useStyles = makeStyles({
   ribbon: {
@@ -101,7 +102,9 @@ function SessionCard({ session, isMasterclass = false, isSelected = false }: Ses
             <div
               className={classes.sprintImage}
             >
-              <DefaultSessionSVG />
+              {/* <img src={DefaultSessionSVG}/> */}
+              <DefaultSessionSVG
+              />
             </div>
           </div>
         )}
