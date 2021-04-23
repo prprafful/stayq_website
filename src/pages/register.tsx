@@ -1,12 +1,12 @@
 import { useEffect, useMemo } from 'react';
 import { observer } from 'mobx-react-lite';
 import Router, { useRouter } from 'next/router';
+import Link from 'next/link';
 import { createUseStyles } from 'react-jss';
 
 import { useStores } from 'hooks/useStores';
 import Layout from 'components/generics/Layout';
 import SignUpForm from 'components/register/SignUpForm';
-import Link from 'next/link';
 
 const useStyles = createUseStyles({
     container: {

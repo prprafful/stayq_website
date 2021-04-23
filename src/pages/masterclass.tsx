@@ -85,6 +85,10 @@ const useStyles = makeStyles({
         '@media (min-width: 1024px)': {
             padding: '5px 30px',
         },
+        '@media (max-width: 768px)': {
+            height: 'auto',
+            maxHeight: '250px'
+        }
     },
     masterclassItem: {
         cursor: 'pointer',
@@ -141,7 +145,7 @@ function MasterclassRegisterPage(
                     <div className={classes.formRow}>
                         <div className={classes.masterclassListContainer}>
                             {/* <img className={classes.image} src={MinionsInQueuePNG} alt="" /> */}
-                            <Image
+                            <img
                                 src={'/img/MinionsInQueue.png'}
                                 width={400}
                                 className={classes.image}
