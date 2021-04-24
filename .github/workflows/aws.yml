@@ -58,8 +58,7 @@ jobs:
     - name: Build, tag, and push NEXTJS image to Amazon ECR
       id: build-image-nextjs
       env:
-        ECR_REGISTRY: 184563364297.dkr.ecr.ap-south-1.amazonaws.com
-        # ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
+        ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
         ECR_REPOSITORY: sq/staging/stayq_com_nextjs
         IMAGE_TAG: ${{ github.sha }}
       run: |
