@@ -22,7 +22,7 @@ header:
   title: What if learning subjects felt like playing a team sport?
   description: StayQrious is India’s new operating system for education that helps
     kids gain important skills and attitudes that schools don’t teach and exams
-    never test.
+    never test. test
   button: Start Free Trial
   banner_img: /img/image.webp
 features:
