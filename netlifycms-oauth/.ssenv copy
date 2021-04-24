@@ -1,7 +1,7 @@
 NODE_ENV=production
 ORIGIN=https://www-staging.stayqrious.net
-OAUTH_CLIENT_ID=4cc7ffbbca66ff0b7023
-OAUTH_CLIENT_SECRET=9a796bafc444f22fec503cf76a3f383fdbd3563f
+OAUTH_CLIENT_ID=f81f6769b62c0289ea25
+OAUTH_CLIENT_SECRET=4a026033dddf631884a5bfe6e463b47a598788b9
 REDIRECT_URL=https://www-staging.stayqrious.net/callback
 GIT_HOSTNAME=https://github.com
 PORT=3001
