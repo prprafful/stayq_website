@@ -24,8 +24,8 @@ meta_fields: &META_FIELDS
 
 backend:
   name: github
-  branch: poc
-  repo: prprafful/stayq_website
+  branch: master
+  repo: prprafful/stayq_content
   base_url: https://www-staging.stayqrious.net
 media_folder: public/img
 public_folder: img
