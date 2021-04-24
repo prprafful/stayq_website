@@ -29,6 +29,8 @@ on:
       - poc
   release:
     types: [created]
+  repository_dispatch:
+    types: [content-ready]
 
 name: Deploy to Amazon ECS
 
